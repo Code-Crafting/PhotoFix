@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+@theme {
+  /* dark */
+  --color-primary-dark: #0a0605;
+  --color-secondary-dark: #321f1a;
+  --color-textPrimary: #fffdf6;
+
+  /* shadow */
+  --shadow-header: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.con {
+  @apply max-w-[1280px] mx-auto;
+}
