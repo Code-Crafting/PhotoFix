@@ -22,7 +22,7 @@ function RadialGradient() {
     },
   ];
   return (
-    <div className="z-0">
+    <div>
       {conDetails.map((el) => (
         <GradientCon conDetail={el} key={el.id} />
       ))}

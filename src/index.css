@@ -9,6 +9,14 @@
   /* shadow */
   --shadow-header: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-transparent bg-clip-text;
+  }
+}
 .con {
   @apply max-w-[1280px] mx-auto;
+}
+body {
+  font-family: sans-serif;
 }

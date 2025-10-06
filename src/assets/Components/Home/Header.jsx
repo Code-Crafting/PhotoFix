@@ -1,9 +1,9 @@
-import LogoLight from "../../images/LogoLight.png";
-import LogoDark from "../../images/LogoDark.png";
-import { FiUpload } from "react-icons/fi";
-import { IconContext } from "react-icons";
+import LogoLight from "../../images/Logo/LogoLight.png";
+import LogoDark from "../../images/Logo/LogoDark.png";
 import Button from "../Button";
 import { Link } from "react-router";
+import { IoSunny } from "react-icons/io5";
+import { IconContext } from "react-icons";
 
 function Header() {
   const menuList = [
@@ -28,12 +28,21 @@ function Header() {
 
           <ul className="text-textPrimary flex gap-4 items-center">
             {menuList.map((el) => (
-              <li className={`${el.customStyle} hover:cursor-pointer`}>
+              <li
+                key={el.id}
+                className={`${el.customStyle} hover:cursor-pointer`}
+              >
                 {el.title}
               </li>
             ))}
             <Button customStyle="w-[80px] py-1 bg-[#51271d]" text="Login" />
             <Button customStyle="w-[80px] py-1 bg-[#643b32]" text="Sign up" />
+
+            <IconContext.Provider
+              value={{ className: "text-lg hover:cursor-pointer" }}
+            >
+              <IoSunny />
+            </IconContext.Provider>
           </ul>
         </div>
       </div>
