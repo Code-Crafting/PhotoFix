@@ -59,7 +59,7 @@ function Features() {
   ];
 
   return (
-    <div className="con">
+    <div className="con pt-36">
       {/* heading */}
       <SectionHeading
         title="Magical"

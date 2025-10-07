@@ -1,7 +1,7 @@
 import LogoLight from "../../images/Logo/LogoLight.png";
 import LogoDark from "../../images/Logo/LogoDark.png";
 import Button from "../Button";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 import { IoSunny } from "react-icons/io5";
 import { IconContext } from "react-icons";
 
@@ -10,31 +10,36 @@ function Header() {
     {
       id: 1,
       title: "Features",
-      customStyle: "hover:text-textPrimary/50",
+      to: "/features",
     },
     {
       id: 2,
       title: "Pricing",
-      customStyle: "hover:text-textPrimary/50",
+      to: "/pricing",
     },
   ];
   return (
     <div className="fixed w-full z-[9999]">
-      <div className="con mt-6 grid place-items-center">
-        <div className="bg-secondary-dark/90 text-textPrimary px-6 rounded-full w-3xl flex items-center justify-between shadow-header backdrop-blur-sm">
+      <div className="con pt-6">
+        <div className="bg-secondary-dark/90 text-textPrimary px-6 rounded-full max-w-3xl flex items-center justify-between shadow-header backdrop-blur-sm mx-auto">
           <Link to="/">
             <img src={LogoLight} alt="logo" className="w-[130px]" />
           </Link>
 
-          <ul className="text-textPrimary flex gap-4 items-center">
-            {menuList.map((el) => (
-              <li
-                key={el.id}
-                className={`${el.customStyle} hover:cursor-pointer`}
-              >
-                {el.title}
-              </li>
-            ))}
+          <ul className=" flex gap-4 items-center ">
+            {menuList.map((el) => {
+              const { id, to, title } = el;
+              return (
+                <NavLink to={to}>
+                  <li
+                    key={id}
+                    className={`hover:cursor-pointer hover:text-textPrimary/50`}
+                  >
+                    {title}
+                  </li>
+                </NavLink>
+              );
+            })}
             <Button customStyle="w-[80px] py-1 bg-[#51271d]" text="Login" />
             <Button customStyle="w-[80px] py-1 bg-[#643b32]" text="Sign up" />
 

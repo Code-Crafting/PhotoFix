@@ -30,3 +30,6 @@
 body {
   font-family: sans-serif;
 }
+.active {
+  color: rgba(255, 253, 246, 0.5);
+}

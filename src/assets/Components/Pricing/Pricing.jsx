@@ -5,7 +5,7 @@ import { LuCrown } from "react-icons/lu";
 
 function Pricing() {
   return (
-    <div className="con mt-32">
+    <div className="con pt-36">
       {/* heading */}
       <SectionHeading
         title="Choose Your"
