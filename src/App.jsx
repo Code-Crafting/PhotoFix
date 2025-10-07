@@ -1,7 +1,7 @@
-import { Route, Router, Routes } from "react-router";
-import Header from "./assets/Components/Home/Header";
+import { Route, Routes } from "react-router";
 import Home from "./assets/Components/Home/Home";
-import RadialGradient from "./assets/Components/RadialGradient/RadialGradient";
+import Header from "./assets/Components/Header/Header";
+import Features from "./assets/Components/Features/Features";
 
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
+      <Features />
     </div>
   );
 }

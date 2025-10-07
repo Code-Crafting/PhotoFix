@@ -13,6 +13,12 @@
   .text-gradient {
     @apply bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-transparent bg-clip-text;
   }
+  .icon-gradient {
+    @apply bg-gradient-to-br from-orange-500 via-red-500 to-pink-500;
+  }
+  .features-gradient {
+    @apply bg-gradient-to-br from-[#211411] via-[#341f1b] to-[#4a2d26];
+  }
 }
 .con {
   @apply max-w-[1280px] mx-auto;

@@ -18,7 +18,7 @@ function Home() {
             Turn Every Photo <br /> into a{" "}
             <span className="text-gradient">Masterpiece</span>
           </h1>
-          <p className="py-2 text-gray-300 leading-6">
+          <p className="py-2 text-textPrimary/50 leading-6">
             Transform your photos with AI-powered editing tools. Remove
             backgrounds, change backgrounds, and create stunning visuals in
             seconds. Drop a photo. We will do the magic.
@@ -34,7 +34,7 @@ function Home() {
 
         {/* right */}
         <div className="w-1/2 grid place-items-center ">
-          <div className="max-w-md  rounded-xl overflow-hidden">
+          <div className="max-w-md rounded-xl overflow-hidden shadow-header">
             <ReactCompareSlider
               itemOne={
                 <ReactCompareSliderImage src={beforeImg} alt="Image one" />
@@ -44,6 +44,9 @@ function Home() {
               }
             />
           </div>
+          <p className="mt-3 text-textPrimary/50 tracking-wider">
+            Drag the slider to see the magic✨
+          </p>
         </div>
       </div>
     </div>
