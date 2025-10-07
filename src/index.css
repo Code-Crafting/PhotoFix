@@ -8,6 +8,7 @@
 
   /* shadow */
   --shadow-header: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  --shadow-pricing: var(--color-secondary-dark) 0px 0px 20px;
 }
 @layer utilities {
   .text-gradient {
@@ -18,6 +19,9 @@
   }
   .features-gradient {
     @apply bg-gradient-to-br from-[#211411] via-[#341f1b] to-[#4a2d26];
+  }
+  .button-gradient {
+    @apply bg-gradient-to-r from-[#ff512f] to-[#dd2476] text-white font-semibold;
   }
 }
 .con {

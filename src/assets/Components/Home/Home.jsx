@@ -26,7 +26,7 @@ function Home() {
           <div className="flex mt-2">
             <Button
               text="Try it now"
-              customStyle="bg-gradient-to-r from-[#ff512f] to-[#dd2476] text-white font-semibold px-5 py-2 rounded-lg shadow-lg hover:opacity-90 transition"
+              customStyle="button-gradient px-5 py-2 rounded-lg shadow-lg hover:scale-105 transition"
             />
             <Button />
           </div>

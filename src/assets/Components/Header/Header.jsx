@@ -21,7 +21,7 @@ function Header() {
   return (
     <div className="fixed w-full z-[9999]">
       <div className="con mt-6 grid place-items-center">
-        <div className="bg-secondary-dark text-textPrimary px-6 rounded-full w-3xl flex items-center justify-between shadow-header ">
+        <div className="bg-secondary-dark/90 text-textPrimary px-6 rounded-full w-3xl flex items-center justify-between shadow-header backdrop-blur-sm">
           <Link to="/">
             <img src={LogoLight} alt="logo" className="w-[130px]" />
           </Link>

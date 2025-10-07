@@ -2,6 +2,8 @@ import { FaEraser, FaEdit, FaMagic, FaExpandArrowsAlt } from "react-icons/fa";
 import { RiShadowLine } from "react-icons/ri";
 import { AiOutlineBgColors } from "react-icons/ai";
 import { MdOutlineTextFields } from "react-icons/md";
+import SectionHeading from "../SectionHeading";
+import Icon from "../Icon";
 
 function Features() {
   const features = [
@@ -57,30 +59,26 @@ function Features() {
   ];
 
   return (
-    <div className="text-white con">
+    <div className="con">
       {/* heading */}
-      <div className="grid place-items-center w-1/2 mx-auto">
-        <h1 className="text-5xl font-bold">
-          Magical <span className="text-gradient">Features</span>
-        </h1>
-        <p className="text-center text-textPrimary/50 mt-2 ">
-          Transform your photos with cutting-edge AI technology. Each freature
-          is designed to give you professional results in seconds, not hours.
-        </p>
-      </div>
+      <SectionHeading
+        title="Magical"
+        span="Features"
+        subtitle=" Transform your photos with cutting-edge AI technology. Each freature is
+        designed to give you professional results in seconds, not hours."
+      />
 
       {/* content */}
       <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 mt-20 relative z-10">
-        {features.map(({ id, title, subtitle, icon: Icon }) => (
+        {features.map(({ id, title, subtitle, icon }) => (
           <div
             key={id}
-            className="border-2 px-4 py-6 features-gradient shadow-header space-y-2 border-secondary-dark rounded-lg"
+            className="border-2 px-4 py-6 features-gradient shadow-header space-y-2 border-secondary-dark rounded-lg hover:cursor-pointer hover:scale-105 transition "
           >
-            <div className="w-[50px] aspect-square grid place-items-center rounded-xl icon-gradient">
-              <Icon className=" text-2xl" />
-            </div>
-
-            <h3 className="text-xl font-semibold text-textPrimary">{title}</h3>
+            <Icon icon={icon} />
+            <h3 className="text-xl font-semibold text-textPrimary mt-4">
+              {title}
+            </h3>
             <p className="text-textPrimary/50">{subtitle}</p>
           </div>
         ))}
