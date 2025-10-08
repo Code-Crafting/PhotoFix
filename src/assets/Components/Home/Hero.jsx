@@ -5,6 +5,8 @@ import {
 import beforeImg from "../../images/BeforeAfter/beforeImg.webp";
 import afterImg from "../../images/BeforeAfter/afterImg.webp";
 import Button from "../Button";
+import { FiUpload } from "react-icons/fi";
+import { Link } from "react-router";
 
 function Hero() {
   return (
@@ -21,11 +23,14 @@ function Hero() {
           seconds. Drop a photo. We will do the magic.
         </p>
         <div className="flex mt-2">
-          <Button
-            text="Try it now"
-            customStyle="button-gradient px-5 py-2 rounded-lg shadow-lg hover:scale-105 transition"
-          />
-          <Button />
+          <Link to="/editor">
+            <Button
+              icon={FiUpload}
+              iconStyle="text-lg"
+              text="Open AI Photo Editor"
+              customStyle="button-gradient px-5 py-2 rounded-lg shadow-lg hover:scale-105 transition"
+            />
+          </Link>
         </div>
       </div>
 

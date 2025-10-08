@@ -4,20 +4,9 @@ import Button from "../Button";
 import { Link, NavLink } from "react-router";
 import { IoSunny } from "react-icons/io5";
 import { IconContext } from "react-icons";
+import { menuList } from "../../constants/menuList";
 
 function Header() {
-  const menuList = [
-    {
-      id: 1,
-      title: "Features",
-      to: "/features",
-    },
-    {
-      id: 2,
-      title: "Pricing",
-      to: "/pricing",
-    },
-  ];
   return (
     <div className="fixed w-full z-[9999]">
       <div className="con pt-6">

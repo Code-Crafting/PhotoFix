@@ -1,8 +1,9 @@
-function Button({ text, customStyle }) {
+function Button({ text, customStyle, icon: Icon, iconStyle }) {
   return (
     <div
-      className={`${customStyle} grid place-items-center rounded-full shadow-header hover:cursor-pointer`}
+      className={`${customStyle} flex items-center justify-center gap-2 rounded-full shadow-header hover:cursor-pointer`}
     >
+      {Icon && <Icon className={iconStyle} />}
       {text}
     </div>
   );

@@ -7,7 +7,6 @@ import Hero from "./Hero";
 function Home() {
   return (
     <div className="relative con min-h-screen">
-      <RadialGradient />
       <Hero />
       <Features />
       <Pricing />
