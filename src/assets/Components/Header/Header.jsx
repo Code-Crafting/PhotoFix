@@ -19,9 +19,8 @@ function Header() {
             {menuList.map((el) => {
               const { id, to, title } = el;
               return (
-                <NavLink to={to}>
+                <NavLink to={to} key={id}>
                   <li
-                    key={id}
                     className={`hover:cursor-pointer hover:text-textPrimary/50`}
                   >
                     {title}

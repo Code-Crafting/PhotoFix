@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router";
-import Home from "./assets/Components/Home/Home";
-import Header from "./assets/Components/Header/Header";
-import Footer from "./assets/Components/Footer/Footer";
-import Features from "./assets/Components/Features/Features";
-import Pricing from "./assets/Components/Pricing/Pricing";
-import RadialGradient from "./assets/Components/RadialGradient/RadialGradient";
-import Editor from "./assets/Components/Editor/Editor";
+import Home from "./assets/components/Home/Home";
+import Header from "./assets/components/Header/Header";
+import Footer from "./assets/components/Footer/Footer";
+import Features from "./assets/components/Features/Features";
+import Pricing from "./assets/components/Pricing/Pricing";
+import RadialGradient from "./assets/components/RadialGradient/RadialGradient";
+import Editor from "./assets/components/Editor/Editor";
 
 function App() {
   return (
