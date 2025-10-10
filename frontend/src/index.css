@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  /* dark */
+  --color-primary-dark: #0a0605;
+  --color-secondary-dark: #321f1a;
+  --color-textPrimary: #fffdf6;
+
+  /* shadow */
+  --shadow-header: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  --shadow-pricing: var(--color-secondary-dark) 0px 0px 20px;
+}
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-transparent bg-clip-text;
+  }
+  .icon-gradient {
+    @apply bg-gradient-to-br from-orange-500 via-red-500 to-pink-500;
+  }
+  .features-gradient {
+    @apply bg-gradient-to-br from-[#211411] via-[#341f1b] to-[#4a2d26];
+  }
+  .button-gradient {
+    @apply bg-gradient-to-r from-[#ff512f] to-[#dd2476] text-white font-semibold;
+  }
+}
+.con {
+  @apply max-w-[1280px] mx-auto;
+}
+body {
+  font-family: sans-serif;
+}
+.active {
+  color: rgba(255, 253, 246, 0.5);
+}
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: #4f322a;
+  border-radius: 2rem;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--color-secondary-dark);
+  border-radius: 2rem;
+}
