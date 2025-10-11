@@ -5,7 +5,7 @@ function Button({ text, customStyle, icon: Icon, iconStyle, fn }) {
       onClick={fn}
     >
       {Icon && <Icon className={iconStyle} />}
-      {text}
+      {text && text}
     </div>
   );
 }

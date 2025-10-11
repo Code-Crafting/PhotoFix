@@ -6,13 +6,12 @@ import {
   ImageKitUploadNetworkError,
   upload,
 } from "@imagekit/react";
-import Button from "./Button";
-import { IoCloudUploadOutline } from "react-icons/io5";
+import { FaPlus } from "react-icons/fa";
+import Button from "../Button";
 
 const authEndpoint = import.meta.env.VITE_AUTH_ENDPOINT;
 
-export default function ImageUpload() {
-  const [imageUrl, setImageUrl] = useState("");
+export default function ImageUpload({ setPreviousWork, setImageUrl }) {
   const fileInputRef = useRef();
   const abortController = new AbortController();
 
@@ -31,6 +30,14 @@ export default function ImageUpload() {
   const handleUpload = async () => {
     // Extract the first file from the file input
     const file = fileInputRef.current.files[0];
+    let fileName;
+    const allowedTypes = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
+    if (!allowedTypes.includes(file.type)) {
+      alert("Select image only!");
+      return;
+    } else {
+      fileName = file.name;
+    }
 
     // Retrieve authentication parameters for the upload.
     let authParams;
@@ -51,7 +58,7 @@ export default function ImageUpload() {
         signature,
         publicKey,
         file,
-        fileName: file.name, // Optionally set a custom file name
+        fileName, // Optionally set a custom file name
         // Progress callback to update upload progress state
         // onProgress: (event) => {
         //   setProgress((event.loaded / event.total) * 100);
@@ -59,7 +66,9 @@ export default function ImageUpload() {
         // Abort signal to allow cancellation of the upload if needed.
         abortSignal: abortController.signal,
       });
-      setImageUrl(uploadResponse.url);
+      const { name, url } = uploadResponse;
+      setImageUrl(url);
+      setPreviousWork((prev) => [...prev, { name: name, url: url }]);
       console.log("Upload response:", uploadResponse);
     } catch (error) {
       // Handle specific error types provided by the ImageKit SDK.
@@ -79,26 +88,22 @@ export default function ImageUpload() {
   };
 
   return (
-    <div className="col-span-2 border-dashed border-4 border-secondary-dark rounded-lg w-3xl grid place-items-center">
-      {!imageUrl ? (
-        <label htmlFor="dropzone-file" className="cursor-pointer">
-          <Button
-            icon={IoCloudUploadOutline}
-            text="Upload Photo"
-            customStyle="text-textPrimary text-lg button-gradient px-8 py-2"
-            iconStyle="text-2xl"
-          />
+    <div className="border-2 border-white border-dashed w-56 h-80">
+      <div className="grid place-items-center h-full">
+        <label htmlFor="file" className="cursor-pointer">
+          <div className="bg-textPrimary border p-2 rounded-full hover:bg-textPrimary/50 hover:scale-105 transition">
+            <FaPlus />
+          </div>
+
           <input
-            id="dropzone-file"
+            id="file"
             type="file"
             className="hidden"
             ref={fileInputRef}
             onChange={handleUpload}
           />
         </label>
-      ) : (
-        <img src={`${imageUrl}`} className="w-[70%]" />
-      )}
+      </div>
     </div>
   );
 }

@@ -9,7 +9,7 @@ import Editor from "./assets/components/Editor/Editor";
 
 function App() {
   return (
-    <div className="bg-primary-dark text-white">
+    <div className="bg-primary-dark">
       <Header />
       <RadialGradient />
       <Routes>
