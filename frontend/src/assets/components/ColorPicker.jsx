@@ -11,7 +11,7 @@ const ColorPicker = ({ title }) => {
   ]);
   return (
     <div>
-      <p>{title}</p>
+      <p className=" text-textPrimary text-lg">{title}</p>
       <div className="mt-2 flex flex-wrap gap-1">
         {colorCodes.map((code, i) => {
           return (

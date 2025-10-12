@@ -1,7 +1,10 @@
 const InputField = ({ label, type, isVertical = false }) => {
   return (
     <div className={`flex ${isVertical === true ? "" : "flex-col"} gap-1`}>
-      <label htmlFor={label}> {label} </label>
+      <label htmlFor={label} className=" text-textPrimary text-lg">
+        {" "}
+        {label}{" "}
+      </label>
       <input
         type={type}
         id={label}

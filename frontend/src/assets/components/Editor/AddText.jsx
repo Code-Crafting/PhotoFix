@@ -5,7 +5,7 @@ const AddText = () => {
   // const colorRef = useRef(null);
 
   return (
-    <div className="pr-2 space-y-3">
+    <div className="pr-2 space-y-3 overflow-y-scroll scrollbar ">
       <InputField label="Text" type="text" />
       <InputField label="Font Size" type="number" />
 

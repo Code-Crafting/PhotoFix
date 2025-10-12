@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, lazy } from "react";
 import { editingTools } from "../../constants/EditingTools";
 import Button from "../Button";
 import Crop from "./Crop";
-import AddText from "./AddText";
+const AddText = lazy(() => import("./AddText"));
+const Shadow = lazy(() => import("./Shadow"));
+const Gradient = lazy(() => import("./Gradient"));
+const Border = lazy(() => import("./Border"));
+const Rotate = lazy(() => import("./Rotate"));
 
 const EditingPage = () => {
   const [elId, setElId] = useState(1);
@@ -29,16 +33,29 @@ const EditingPage = () => {
       <div className="w-1/2 bg-secondary-dark min-h-[500px] rounded-xl px-2 py-4 "></div>
 
       {/* required fields */}
-      <div className="w-1/4 text-textPrimary features-gradient px-2 py-4 rounded-lg shadow-header space-y-3">
+      <div className="w-1/4 text-textPrimary features-gradient p-4 rounded-lg shadow-header space-y-3">
         <div className="flex gap-2 justify-end">
           <Button text="Save" customStyle="w-[100px] py-1 button-gradient" />
           <Button text="Export" customStyle="w-[100px] py-1 button-gradient" />
         </div>
-        {/* <Crop /> */}
-        <div className="h-[300px] overflow-y-scroll scrollbar">
-          {elId === 2 ? <AddText /> : <Crop />}
+
+        <div className="h-[300px] flex justify-center flex-col gap-4">
+          {elId === 2 ? (
+            <AddText />
+          ) : elId === 3 ? (
+            <Shadow />
+          ) : elId === 4 ? (
+            <Gradient />
+          ) : elId === 5 ? (
+            <Border />
+          ) : elId === 6 ? (
+            <Rotate />
+          ) : (
+            <Crop />
+          )}
         </div>
-        <Button text="Apply" customStyle="py-2 mt-8 bg-[#643b32]" />
+
+        {/* <Button text="Apply" customStyle="py-2 mt-8 bg-[#643b32]" /> */}
       </div>
     </div>
   );
