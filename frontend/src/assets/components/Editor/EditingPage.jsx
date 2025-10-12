@@ -2,10 +2,10 @@ import { useState } from "react";
 import { editingTools } from "../../constants/EditingTools";
 import Button from "../Button";
 import Crop from "./Crop";
+import AddText from "./AddText";
 
 const EditingPage = () => {
   const [elId, setElId] = useState(1);
-  console.log(elId);
   return (
     <div className="flex w-full items-center gap-4">
       {/* editing tools */}
@@ -19,7 +19,7 @@ const EditingPage = () => {
               onClick={() => setElId(id)}
             >
               <Icon className="text-2xl" />
-              {id === elId && <p className={`text-xl`}>{title}</p>}
+              {id === elId && <p className={`text-lg`}>{title}</p>}
             </div>
           );
         })}
@@ -34,7 +34,10 @@ const EditingPage = () => {
           <Button text="Save" customStyle="w-[100px] py-1 button-gradient" />
           <Button text="Export" customStyle="w-[100px] py-1 button-gradient" />
         </div>
-        <Crop />
+        {/* <Crop /> */}
+        <div className="h-[300px] overflow-y-scroll scrollbar">
+          {elId === 2 ? <AddText /> : <Crop />}
+        </div>
         <Button text="Apply" customStyle="py-2 mt-8 bg-[#643b32]" />
       </div>
     </div>
