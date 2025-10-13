@@ -1,7 +1,9 @@
-import { useState, lazy } from "react";
+import { useState, lazy, useContext, useEffect } from "react";
 import { editingTools } from "../../constants/EditingTools";
 import Button from "../Button";
 import Crop from "./Crop";
+import { ImageContext } from "../../context/ImageContext";
+import ImageUpload from "./ImageUpload";
 const AddText = lazy(() => import("./AddText"));
 const Shadow = lazy(() => import("./Shadow"));
 const Gradient = lazy(() => import("./Gradient"));
@@ -10,6 +12,23 @@ const Rotate = lazy(() => import("./Rotate"));
 
 const EditingPage = () => {
   const [elId, setElId] = useState(1);
+  // const [previousWork, setPreviousWork] = useState([]);
+  const [imageUrl, setImageUrl] = useState("");
+  const [customImageUrl, setCustomImageUrl] = useState(imageUrl);
+
+  const components = {
+    1: <Crop />,
+    2: <AddText />,
+    3: <Shadow />,
+    4: <Gradient />,
+    5: <Border />,
+    6: <Rotate />,
+  };
+
+  useEffect(() => {
+    setCustomImageUrl(imageUrl);
+  }, [imageUrl]);
+
   return (
     <div className="flex w-full items-center gap-4">
       {/* editing tools */}
@@ -29,31 +48,34 @@ const EditingPage = () => {
         })}
       </div>
 
-      {/* editing area */}
-      <div className="w-1/2 bg-secondary-dark min-h-[500px] rounded-xl px-2 py-4 "></div>
+      {/* image */}
+      <div className="w-1/2 bg-secondary-dark min-h-[500px] rounded-xl px-2 py-4 grid place-items-center">
+        {!customImageUrl ? (
+          <ImageUpload
+            // setPreviousWork={setPreviousWork}
+            setImageUrl={setImageUrl}
+          />
+        ) : (
+          <img src={customImageUrl} alt="image" className="max-w-[500px]" />
+        )}
+      </div>
 
       {/* required fields */}
       <div className="w-1/4 text-textPrimary features-gradient p-4 rounded-lg shadow-header space-y-3">
         <div className="flex gap-2 justify-end">
-          <Button text="Save" customStyle="w-[100px] py-1 button-gradient" />
+          <Button
+            text="Delete"
+            customStyle="w-[100px] py-1 bg-red-500"
+            fn={() => setImageUrl("")}
+          />
           <Button text="Export" customStyle="w-[100px] py-1 button-gradient" />
         </div>
 
-        <div className="h-[300px] flex justify-center flex-col gap-4">
-          {elId === 2 ? (
-            <AddText />
-          ) : elId === 3 ? (
-            <Shadow />
-          ) : elId === 4 ? (
-            <Gradient />
-          ) : elId === 5 ? (
-            <Border />
-          ) : elId === 6 ? (
-            <Rotate />
-          ) : (
-            <Crop />
-          )}
-        </div>
+        <ImageContext.Provider value={[imageUrl, setCustomImageUrl]}>
+          <div className="h-[300px] flex justify-center flex-col gap-4">
+            {components[elId]}
+          </div>
+        </ImageContext.Provider>
 
         {/* <Button text="Apply" customStyle="py-2 mt-8 bg-[#643b32]" /> */}
       </div>

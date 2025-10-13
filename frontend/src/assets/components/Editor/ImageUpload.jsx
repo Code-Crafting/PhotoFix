@@ -6,12 +6,12 @@ import {
   ImageKitUploadNetworkError,
   upload,
 } from "@imagekit/react";
-import { FaPlus } from "react-icons/fa";
+import { FiUploadCloud } from "react-icons/fi";
 import Button from "../Button";
 
 const authEndpoint = import.meta.env.VITE_AUTH_ENDPOINT;
 
-export default function ImageUpload({ setPreviousWork, setImageUrl }) {
+export default function ImageUpload({ setImageUrl }) {
   const fileInputRef = useRef();
   const abortController = new AbortController();
 
@@ -68,7 +68,7 @@ export default function ImageUpload({ setPreviousWork, setImageUrl }) {
       });
       const { name, url } = uploadResponse;
       setImageUrl(url);
-      setPreviousWork((prev) => [...prev, { name: name, url: url }]);
+      // setPreviousWork((prev) => [...prev, { name: name, url: url }]);
       console.log("Upload response:", uploadResponse);
     } catch (error) {
       // Handle specific error types provided by the ImageKit SDK.
@@ -88,22 +88,26 @@ export default function ImageUpload({ setPreviousWork, setImageUrl }) {
   };
 
   return (
-    <div className="border-2 border-white border-dashed w-56 h-80">
-      <div className="grid place-items-center h-full">
-        <label htmlFor="file" className="cursor-pointer">
-          <div className="bg-textPrimary border p-2 rounded-full hover:bg-textPrimary/50 hover:scale-105 transition">
-            <FaPlus />
-          </div>
+    <div className="flex flex-col justify-center items-center h-full">
+      <label htmlFor="file" className="cursor-pointer">
+        <Button
+          text="Upload"
+          customStyle="w-40 py-2 button-gradient"
+          icon={FiUploadCloud}
+          iconStyle="text-lg"
+        />
 
-          <input
-            id="file"
-            type="file"
-            className="hidden"
-            ref={fileInputRef}
-            onChange={handleUpload}
-          />
-        </label>
-      </div>
+        <input
+          id="file"
+          type="file"
+          className="hidden"
+          ref={fileInputRef}
+          onChange={handleUpload}
+        />
+      </label>
+      <p className="mt-2 text-textPrimary/50">
+        Support image type: .jpeg, .jpg, .png, .webp
+      </p>
     </div>
   );
 }

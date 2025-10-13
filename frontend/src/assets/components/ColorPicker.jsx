@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
+import InputLabel from "./InputLabel";
 
 const ColorPicker = ({ title }) => {
   const [colorCodes, setColorCodes] = useState([
@@ -11,7 +12,7 @@ const ColorPicker = ({ title }) => {
   ]);
   return (
     <div>
-      <p className=" text-textPrimary text-lg">{title}</p>
+      <InputLabel title={title} />
       <div className="mt-2 flex flex-wrap gap-1">
         {colorCodes.map((code, i) => {
           return (

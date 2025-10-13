@@ -1,11 +1,10 @@
+import InputLabel from "./InputLabel";
+
 const RangeInput = ({ title, defaultValue, setterFnc, min, max }) => {
   return (
     <div>
-      <label htmlFor="default-range" className=" text-textPrimary text-lg">
-        {title}
-      </label>
+      <InputLabel title={title} />
       <input
-        id="default-range"
         type="range"
         min={min}
         max={max}
