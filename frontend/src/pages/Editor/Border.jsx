@@ -1,4 +1,3 @@
-import React from "react";
 import InputField from "../../ui/InputField";
 import ColorPicker from "../../ui/ColorPicker";
 import InputLabel from "../../ui/InputLabel";

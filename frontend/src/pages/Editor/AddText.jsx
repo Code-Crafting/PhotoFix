@@ -6,7 +6,6 @@ import InputLabel from "../../ui/InputLabel";
 import RangeInput from "../../ui/RangeInput";
 import { ImageContext } from "../../context/ImageContext";
 import { hasSpecialChar } from "../../lib/checkSpecialChar";
-import { TiTick } from "react-icons/ti";
 import Checkbox from "../../ui/Checkbox";
 import { removeHastagFormColorCode } from "../../lib/removeHastagFromColorCode";
 
@@ -42,7 +41,7 @@ const AddText = () => {
   const width = useDebounce(initialValues.width);
   const padding = useDebounce(initialValues.padding);
 
-  const [imageUrl, setCustomImageUrl] = useContext(ImageContext);
+  const [imageUrl, setCustomImageUrl, Icon] = useContext(ImageContext);
 
   // checking whether user wants to ad bg/text color
   const handleCheckbox = (checkBoxName) => {
@@ -204,7 +203,7 @@ const AddText = () => {
       <div className="flex items-center gap-1">
         <Checkbox
           title="Background Color"
-          icon={isSelected.bgColor && <TiTick />}
+          icon={isSelected.bgColor && <Icon />}
           setterFnc={() => handleCheckbox("bgColor")}
         />
         <ColorPicker
@@ -219,7 +218,7 @@ const AddText = () => {
       <div className="flex items-center gap-1">
         <Checkbox
           title="Text Color"
-          icon={isSelected.textColor && <TiTick />}
+          icon={isSelected.textColor && <Icon />}
           setterFnc={() => handleCheckbox("textColor")}
         />
         <ColorPicker

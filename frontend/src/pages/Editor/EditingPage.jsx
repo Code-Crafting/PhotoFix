@@ -4,6 +4,7 @@ import Button from "../../ui/Button";
 import Crop from "./Crop";
 import { ImageContext } from "../../context/ImageContext";
 import ImageUpload from "../../components/ImageUpload";
+import { TiTick } from "react-icons/ti";
 const AddText = lazy(() => import("./AddText"));
 const Shadow = lazy(() => import("./Shadow"));
 const Gradient = lazy(() => import("./Gradient"));
@@ -71,7 +72,7 @@ const EditingPage = () => {
           <Button text="Export" customStyle="w-[100px] py-1 button-gradient" />
         </div>
 
-        <ImageContext.Provider value={[imageUrl, setCustomImageUrl]}>
+        <ImageContext.Provider value={[imageUrl, setCustomImageUrl, TiTick]}>
           <div className="h-[300px] flex justify-center flex-col gap-4">
             {components[elId]}
           </div>
