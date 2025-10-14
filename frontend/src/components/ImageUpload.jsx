@@ -7,7 +7,7 @@ import {
   upload,
 } from "@imagekit/react";
 import { FiUploadCloud } from "react-icons/fi";
-import Button from "../Button";
+import Button from "../ui/Button";
 
 const authEndpoint = import.meta.env.VITE_AUTH_ENDPOINT;
 

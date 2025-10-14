@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { gradientDirections } from "../../constants/GradientDirections";
-import ColorPicker from "../ColorPicker";
-import MultipleOptions from "../MultipleOptions";
+import ColorPicker from "../../ui/ColorPicker";
+import MultipleOptions from "../../ui/MultipleOptions";
 
 const Gradient = () => {
   const [selectedGradient, setSelectedGradient] = useState(1);

@@ -1,9 +1,9 @@
 import { useState, lazy, useContext, useEffect } from "react";
 import { editingTools } from "../../constants/EditingTools";
-import Button from "../Button";
+import Button from "../../ui/Button";
 import Crop from "./Crop";
 import { ImageContext } from "../../context/ImageContext";
-import ImageUpload from "./ImageUpload";
+import ImageUpload from "../../components/ImageUpload";
 const AddText = lazy(() => import("./AddText"));
 const Shadow = lazy(() => import("./Shadow"));
 const Gradient = lazy(() => import("./Gradient"));
@@ -41,7 +41,7 @@ const EditingPage = () => {
               className={`text-textPrimary flex gap-2 items-center features-gradient px-4 py-2 rounded-full hover:cursor-pointer w-max`}
               onClick={() => setElId(id)}
             >
-              <Icon className="text-2xl" />
+              <Icon className="text-2xl" onClick={() => setElId(id)} />
               {id === elId && <p className={`text-lg`}>{title}</p>}
             </div>
           );

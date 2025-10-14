@@ -1,8 +1,4 @@
-import { useState } from "react";
-import SectionHeading from "../SectionHeading";
-import ImageUpload from "./ImageUpload";
 import EditingPage from "./EditingPage";
-import { ImageContext } from "../../context/ImageContext";
 
 function Editor() {
   return (

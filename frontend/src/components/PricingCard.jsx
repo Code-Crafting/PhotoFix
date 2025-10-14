@@ -1,5 +1,5 @@
-import Button from "../Button";
-import Icon from "../Icon";
+import Button from "../ui/Button";
+import Icon from "../ui/Icon";
 import { FaCheckCircle, FaMinusCircle } from "react-icons/fa";
 
 function PricingCard({

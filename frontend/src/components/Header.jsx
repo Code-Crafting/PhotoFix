@@ -1,10 +1,10 @@
-import LogoLight from "../../images/Logo/LogoLight.png";
-import LogoDark from "../../images/Logo/LogoDark.png";
-import Button from "../Button";
+import LogoLight from "../assets/images/Logo/LogoLight.png";
+import LogoDark from "../assets/images/Logo/LogoDark.png";
+import Button from "../ui/Button";
 import { Link, NavLink } from "react-router";
 import { IoSunny } from "react-icons/io5";
 import { IconContext } from "react-icons";
-import { menuList } from "../../constants/menuList";
+import { menuList } from "../constants/menuList";
 
 function Header() {
   return (

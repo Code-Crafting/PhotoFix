@@ -1,5 +1,5 @@
 import { useState } from "react";
-import RangeInput from "../RangeInput";
+import RangeInput from "../../ui/RangeInput";
 
 const Shadow = () => {
   const [blur, setBlur] = useState(10);

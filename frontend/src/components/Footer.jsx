@@ -1,5 +1,5 @@
-import LogoLight from "../../images/Logo/LogoLight.png";
-import LogoDark from "../../images/Logo/LogoDark.png";
+import LogoLight from "../assets/images/Logo/LogoLight.png";
+import LogoDark from "../assets/images/Logo/LogoDark.png";
 import { FaRegHeart } from "react-icons/fa";
 
 function Footer() {

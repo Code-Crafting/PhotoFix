@@ -1,5 +1,5 @@
-import SectionHeading from "../SectionHeading";
-import PricingCard from "./PricingCard";
+import SectionHeading from "../ui/SectionHeading";
+import PricingCard from "../components/PricingCard";
 import { FaRegStar } from "react-icons/fa";
 import { LuCrown } from "react-icons/lu";
 

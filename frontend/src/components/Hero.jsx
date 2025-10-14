@@ -2,9 +2,9 @@ import {
   ReactCompareSlider,
   ReactCompareSliderImage,
 } from "react-compare-slider";
-import beforeImg from "../../images/BeforeAfter/beforeImg.webp";
-import afterImg from "../../images/BeforeAfter/afterImg.webp";
-import Button from "../Button";
+import beforeImg from "../assets/images/BeforeAfter/beforeImg.webp";
+import afterImg from "../assets/images/BeforeAfter/afterImg.webp";
+import Button from "../ui/Button";
 import { FiUpload } from "react-icons/fi";
 import { useNavigate } from "react-router";
 

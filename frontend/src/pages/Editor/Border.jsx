@@ -1,7 +1,7 @@
 import React from "react";
-import InputField from "../InputField";
-import ColorPicker from "../ColorPicker";
-import InputLabel from "../InputLabel";
+import InputField from "../../ui/InputField";
+import ColorPicker from "../../ui/ColorPicker";
+import InputLabel from "../../ui/InputLabel";
 
 const Border = () => {
   return (

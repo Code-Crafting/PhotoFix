@@ -10,6 +10,12 @@ const ColorPicker = ({ title }) => {
     "#1149f2",
     "#db0daf",
   ]);
+
+  const handleColorChange = (value) => {
+    // const newColor = value;
+    // console.log(newColor);
+  };
+
   return (
     <div>
       <InputLabel title={title} />
@@ -28,7 +34,12 @@ const ColorPicker = ({ title }) => {
           className="w-[25px] aspect-square border-2 border-dashed rounded-full grid place-items-center hover:cursor-pointer"
         >
           <FaPlus className="text-[10px]" />
-          <input type="color" id="color" className="hidden" />
+          <input
+            type="color"
+            id="color"
+            className="hidden"
+            onClick={(e) => handleColorChange(e)}
+          />
         </label>
       </div>
     </div>

@@ -1,6 +1,6 @@
-import SectionHeading from "../SectionHeading";
-import Icon from "../Icon";
-import { features } from "../../constants/featuresData";
+import SectionHeading from "../ui/SectionHeading";
+import Icon from "../ui/Icon";
+import { features } from "../constants/featuresData";
 
 function Features() {
   return (

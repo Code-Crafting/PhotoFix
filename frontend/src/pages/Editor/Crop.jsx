@@ -1,10 +1,10 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import { useDebouncer } from "../../hooks/useDebouncer";
-import InputField from "../InputField";
+import { useDebounce } from "../../hooks/useDebounce";
+import InputField from "../../ui/InputField";
 import { ImageContext } from "../../context/ImageContext";
-import InputLabel from "../InputLabel";
+import InputLabel from "../../ui/InputLabel";
 import { aspectRatios } from "../../constants/AspectRatios";
-import MultipleOptions from "../MultipleOptions";
+import MultipleOptions from "../../ui/MultipleOptions";
 
 const Crop = () => {
   const [queries, setQueries] = useState({
@@ -12,8 +12,8 @@ const Crop = () => {
     height: 0,
   });
   const [selectedRatio, setSelectedRatio] = useState(0);
-  const debouncedWidth = useDebouncer(queries.width);
-  const debouncedHeight = useDebouncer(queries.height);
+  const debouncedWidth = useDebounce(queries.width);
+  const debouncedHeight = useDebounce(queries.height);
   const [imageUrl, setCustomImageUrl] = useContext(ImageContext);
 
   const handleRatio = (id) => {
@@ -24,7 +24,7 @@ const Crop = () => {
     setSelectedRatio(id);
   };
 
-  useEffect(() => {
+  const handleCrop = () => {
     if (!imageUrl) return;
 
     let ratio;
@@ -69,6 +69,10 @@ const Crop = () => {
 
     setCustomImageUrl(`${imageUrl}${transformationCode}`);
     // console.log(transformationCode);
+  };
+
+  useEffect(() => {
+    handleCrop();
   }, [debouncedWidth, debouncedHeight, selectedRatio]);
 
   return (
