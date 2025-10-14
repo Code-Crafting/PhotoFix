@@ -1,48 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import InputLabel from "./InputLabel";
+import Checkbox from "./Checkbox";
 
-const ColorPicker = ({ title }) => {
-  const [colorCodes, setColorCodes] = useState([
-    "#f0f5f1",
-    "#e31809",
-    "#e8dd0e",
-    "#1149f2",
-    "#db0daf",
-  ]);
-
-  const handleColorChange = (value) => {
-    // const newColor = value;
-    // console.log(newColor);
-  };
-
+const ColorPicker = ({ setterFnc }) => {
   return (
-    <div>
-      <InputLabel title={title} />
-      <div className="mt-2 flex flex-wrap gap-1">
-        {colorCodes.map((code, i) => {
-          return (
-            <div
-              key={i}
-              className={`w-[25px] aspect-square rounded-full hover:cursor-pointer`}
-              style={{ backgroundColor: code }}
-            ></div>
-          );
-        })}
-        <label
-          htmlFor="color"
-          className="w-[25px] aspect-square border-2 border-dashed rounded-full grid place-items-center hover:cursor-pointer"
-        >
-          <FaPlus className="text-[10px]" />
-          <input
-            type="color"
-            id="color"
-            className="hidden"
-            onClick={(e) => handleColorChange(e)}
-          />
-        </label>
-      </div>
-    </div>
+    <input
+      type="color"
+      id="color"
+      className="cursor-pointer"
+      onChange={setterFnc}
+    />
   );
 };
 

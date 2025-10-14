@@ -9,7 +9,7 @@ const RangeInput = ({ title, defaultValue, setterFnc, min, max }) => {
         min={min}
         max={max}
         value={defaultValue}
-        onChange={(e) => setterFnc(e.target.value)}
+        onChange={setterFnc}
         className="w-full h-2 bg-primary-dark rounded-lg appearance-none cursor-pointer"
       />
       <div className="flex justify-between">

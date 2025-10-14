@@ -16,12 +16,12 @@ const Rotate = () => {
       <Checkbox
         title="Clockwise"
         icon={isClockWise && <TiTick />}
-        setterFnc={setIsClockWise}
+        setterFnc={() => setIsClockWise(!isClockWise)}
       />
       <Checkbox
         title="Counter-clockwise"
         icon={!isClockWise && <TiTick />}
-        setterFnc={setIsClockWise}
+        setterFnc={() => setIsClockWise(!isClockWise)}
       />
     </>
   );

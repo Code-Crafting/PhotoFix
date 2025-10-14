@@ -12,7 +12,7 @@ const Shadow = () => {
       <RangeInput
         title="Blur"
         defaultValue={blur}
-        setterFnc={setBlur}
+        setterFnc={(e) => setBlur(e.target.value)}
         min={0}
         max={15}
       />
@@ -21,7 +21,7 @@ const Shadow = () => {
       <RangeInput
         title="Saturation"
         defaultValue={saturation}
-        setterFnc={setSaturation}
+        setterFnc={(e) => setSaturation(e.target.value)}
         min={0}
         max={100}
       />
@@ -30,7 +30,7 @@ const Shadow = () => {
       <RangeInput
         title="Offset-X"
         defaultValue={offsetX}
-        setterFnc={setOffsetX}
+        setterFnc={(e) => setOffsetX(e.target.value)}
         min={0}
         max={100}
       />
@@ -39,7 +39,7 @@ const Shadow = () => {
       <RangeInput
         title="Offset-Y"
         defaultValue={offsetY}
-        setterFnc={setOffsetY}
+        setterFnc={(e) => setOffsetY(e.target.value)}
         min={0}
         max={100}
       />

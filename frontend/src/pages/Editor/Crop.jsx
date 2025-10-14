@@ -54,19 +54,6 @@ const Crop = () => {
       transformationCode = `/tr:${params.join(",")}`;
     }
 
-    // const transformationCode =
-    //   !debouncedWidth && !debouncedHeight && !ratio
-    //     ? ""
-    //     : debouncedWidth && !debouncedHeight && !ratio
-    //     ? `/tr:w-${debouncedWidth}`
-    //     : debouncedWidth && !debouncedHeight && ratio
-    //     ? `/tr:w-${debouncedWidth},ar-${ratio}`
-    //     : debouncedHeight && !debouncedWidth
-    //     ? `/tr:h-${debouncedHeight}`
-    //     : !debouncedWidth && !debouncedHeight && ratio
-    //     ? `/tr:ar-${ratio}`
-    //     : `/tr:w-${debouncedWidth},h-${debouncedHeight}`;
-
     setCustomImageUrl(`${imageUrl}${transformationCode}`);
     // console.log(transformationCode);
   };
