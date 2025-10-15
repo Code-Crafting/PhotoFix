@@ -1,21 +1,25 @@
-import { useState, lazy, useContext, useEffect } from "react";
+import { useState, lazy, useEffect } from "react";
 import { editingTools } from "../../constants/EditingTools";
 import Button from "../../ui/Button";
 import Crop from "./components/Crop";
 import { ImageContext } from "../../context/ImageContext";
 import ImageUpload from "../../components/ImageUpload";
 import { TiTick } from "react-icons/ti";
+import ImageLoading from "../../components/ImageLoading";
 const AddText = lazy(() => import("./components/AddText"));
 const Shadow = lazy(() => import("./components/Shadow"));
 const Gradient = lazy(() => import("./components/Gradient"));
 const Border = lazy(() => import("./components/Border"));
 const Rotate = lazy(() => import("./components/Rotate"));
+const BgRemove = lazy(() => import("./components/BgRemove"));
 
 const EditingPage = () => {
   const [elId, setElId] = useState(1);
-  // const [previousWork, setPreviousWork] = useState([]);
+  const [progress, setProgress] = useState(0);
   const [imageUrl, setImageUrl] = useState({ name: "", url: "" });
   const [customImageUrl, setCustomImageUrl] = useState(imageUrl.url);
+
+  // console.log(progress);
 
   const components = {
     1: <Crop />,
@@ -24,6 +28,11 @@ const EditingPage = () => {
     4: <Gradient />,
     5: <Border />,
     6: <Rotate />,
+  };
+
+  const handleDeleteBtn = () => {
+    setImageUrl({ name: "", url: "" });
+    setProgress(0);
   };
 
   useEffect(() => {
@@ -50,14 +59,19 @@ const EditingPage = () => {
       </div>
 
       {/* image */}
-      <div className="w-1/2 bg-secondary-dark min-h-[500px] rounded-xl px-2 py-4 grid place-items-center">
-        {!customImageUrl ? (
+      <div className="w-1/2 bg-secondary-dark min-h-[500px] rounded-xl px-2 py-4 grid place-items-center relative">
+        {progress === 0 ? (
           <ImageUpload
             // setPreviousWork={setPreviousWork}
             setImageUrl={setImageUrl}
+            setProgress={setProgress}
           />
+        ) : (progress < 100 && progress > 0) || !customImageUrl ? (
+          <ImageLoading />
         ) : (
-          <img src={customImageUrl} alt="image" className="max-w-[500px]" />
+          <div className="">
+            <img src={customImageUrl} alt="image" className="max-w-[500px]" />
+          </div>
         )}
       </div>
 
@@ -67,7 +81,7 @@ const EditingPage = () => {
           <Button
             text="Delete"
             customStyle="w-[100px] py-1 bg-red-500"
-            fn={() => setImageUrl({ name: "", url: "" })}
+            fn={handleDeleteBtn}
           />
           <Button text="Export" customStyle="w-[100px] py-1 button-gradient" />
         </div>

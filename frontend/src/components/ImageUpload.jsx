@@ -11,7 +11,7 @@ import Button from "../ui/Button";
 
 const authEndpoint = import.meta.env.VITE_AUTH_ENDPOINT;
 
-export default function ImageUpload({ setImageUrl }) {
+export default function ImageUpload({ setImageUrl, setProgress }) {
   const fileInputRef = useRef();
   const abortController = new AbortController();
 
@@ -60,9 +60,10 @@ export default function ImageUpload({ setImageUrl }) {
         file,
         fileName, // Optionally set a custom file name
         // Progress callback to update upload progress state
-        // onProgress: (event) => {
-        //   setProgress((event.loaded / event.total) * 100);
-        // },
+        onProgress: (event) => {
+          setProgress((event.loaded / event.total) * 100);
+          // console.log(event);
+        },
         // Abort signal to allow cancellation of the upload if needed.
         abortSignal: abortController.signal,
       });

@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import Checkbox from "../../../ui/Checkbox";
-import { TiTick } from "react-icons/ti";
 import RangeInput from "../../../ui/RangeInput";
 import { useDebounce } from "../../../hooks/useDebounce";
 import InputLabel from "../../../ui/InputLabel";
@@ -74,7 +73,7 @@ const Rotate = () => {
       <div>
         <Checkbox
           title="Clockwise"
-          icon={defaultValues.isClockWise && <TiTick />}
+          icon={defaultValues.isClockWise && <Icon />}
           setterFnc={() =>
             setDefaultValues((prev) => ({
               ...prev,
@@ -84,7 +83,7 @@ const Rotate = () => {
         />
         <Checkbox
           title="Counter-clockwise"
-          icon={!defaultValues.isClockWise && <TiTick />}
+          icon={!defaultValues.isClockWise && <Icon />}
           setterFnc={() =>
             setDefaultValues((prev) => ({
               ...prev,
