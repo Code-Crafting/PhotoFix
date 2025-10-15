@@ -12,7 +12,7 @@ export const gradientDirections = [
   {
     id: 3,
     direction: "Top-Left",
-    value: "topleft",
+    value: "top_left",
   },
   {
     id: 4,

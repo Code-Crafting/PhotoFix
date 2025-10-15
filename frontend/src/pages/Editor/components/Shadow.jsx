@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import RangeInput from "../../ui/RangeInput";
-import { useDebounce } from "../../hooks/useDebounce";
-import { ImageContext } from "../../context/ImageContext";
-import CheckBox from "../../ui/Checkbox";
+import RangeInput from "../../../ui/RangeInput";
+import { useDebounce } from "../../../hooks/useDebounce";
+import { ImageContext } from "../../../context/ImageContext";
+import CheckBox from "../../../ui/Checkbox";
 
 const Shadow = () => {
   const [defaultValues, setDefaultValues] = useState({
@@ -25,7 +25,12 @@ const Shadow = () => {
   const offsetY = useDebounce(defaultValues.offsetY);
 
   const handleShadow = () => {
-    if (!imageUrl) return;
+    const isPng = imageUrl.name.includes("png");
+    if (!isPng) {
+      alert("Select a PNG");
+      imageUrl.url = "";
+    }
+
     const params = [];
 
     if (blur) params.push(`bl-${blur}`);
@@ -36,7 +41,7 @@ const Shadow = () => {
 
     if (offsetY) params.push(`y-${isInverted.offsetY ? "N" : ""}${offsetY}`);
 
-    setCustomImageUrl(`${imageUrl}/tr:e-shadow-${params.join("_")}`);
+    setCustomImageUrl(`${imageUrl.url}/tr:e-shadow-${params.join("_")}`);
   };
 
   useEffect(() => {

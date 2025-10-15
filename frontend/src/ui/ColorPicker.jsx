@@ -1,13 +1,8 @@
-import { useEffect, useState } from "react";
-import { FaPlus } from "react-icons/fa6";
-import InputLabel from "./InputLabel";
-import Checkbox from "./Checkbox";
-
-const ColorPicker = ({ setterFnc }) => {
+const ColorPicker = ({ id = "color", setterFnc }) => {
   return (
     <input
       type="color"
-      id="color"
+      id={id}
       className="cursor-pointer"
       onChange={setterFnc}
     />

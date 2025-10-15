@@ -1,6 +1,9 @@
 const InputLabel = ({ htmlFor, title }) => {
   return (
-    <label htmlFor={htmlFor} className="text-textPrimary text-lg">
+    <label
+      htmlFor={htmlFor}
+      className="text-textPrimary text-lg cursor-pointer"
+    >
       {title}
     </label>
   );

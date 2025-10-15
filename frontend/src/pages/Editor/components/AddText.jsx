@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from "react";
-import { useDebounce } from "../../hooks/useDebounce";
-import ColorPicker from "../../ui/ColorPicker";
-import InputField from "../../ui/InputField";
-import InputLabel from "../../ui/InputLabel";
-import RangeInput from "../../ui/RangeInput";
-import { ImageContext } from "../../context/ImageContext";
-import { hasSpecialChar } from "../../lib/checkSpecialChar";
-import Checkbox from "../../ui/Checkbox";
-import { removeHastagFormColorCode } from "../../lib/removeHastagFromColorCode";
+import { useDebounce } from "../../../hooks/useDebounce";
+import ColorPicker from "../../../ui/ColorPicker";
+import InputField from "../../../ui/InputField";
+import InputLabel from "../../../ui/InputLabel";
+import RangeInput from "../../../ui/RangeInput";
+import { ImageContext } from "../../../context/ImageContext";
+import { hasSpecialChar } from "../../../lib/checkSpecialChar";
+import Checkbox from "../../../ui/Checkbox";
+import { removeHastagFormColorCode } from "../../../lib/removeHastagFromColorCode";
 
 const AddText = () => {
   // all initial values
@@ -56,7 +56,7 @@ const AddText = () => {
 
   // whole text editing
   const handleText = () => {
-    if (!imageUrl || !text) return;
+    if (!imageUrl.url || !text) return;
 
     const hasSpecialChars = hasSpecialChar(text);
     let params = [];
@@ -107,7 +107,9 @@ const AddText = () => {
       params.push(`pa-${padding}`);
     }
 
-    setCustomImageUrl(`${imageUrl}/tr:l-text,${params.join(",")},l-end`);
+    console.log(imageUrl.url);
+
+    setCustomImageUrl(`${imageUrl.url}/tr:l-text,${params.join(",")},l-end`);
     // console.log(`/tr:l-text,${params.join(",")},l-end`);
   };
 

@@ -1,6 +1,6 @@
-import InputField from "../../ui/InputField";
-import ColorPicker from "../../ui/ColorPicker";
-import InputLabel from "../../ui/InputLabel";
+import InputField from "../../../ui/InputField";
+import ColorPicker from "../../../ui/ColorPicker";
+import InputLabel from "../../../ui/InputLabel";
 
 const Border = () => {
   return (

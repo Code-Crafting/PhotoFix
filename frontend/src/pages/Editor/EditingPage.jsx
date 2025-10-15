@@ -1,21 +1,21 @@
 import { useState, lazy, useContext, useEffect } from "react";
 import { editingTools } from "../../constants/EditingTools";
 import Button from "../../ui/Button";
-import Crop from "./Crop";
+import Crop from "./components/Crop";
 import { ImageContext } from "../../context/ImageContext";
 import ImageUpload from "../../components/ImageUpload";
 import { TiTick } from "react-icons/ti";
-const AddText = lazy(() => import("./AddText"));
-const Shadow = lazy(() => import("./Shadow"));
-const Gradient = lazy(() => import("./Gradient"));
-const Border = lazy(() => import("./Border"));
-const Rotate = lazy(() => import("./Rotate"));
+const AddText = lazy(() => import("./components/AddText"));
+const Shadow = lazy(() => import("./components/Shadow"));
+const Gradient = lazy(() => import("./components/Gradient"));
+const Border = lazy(() => import("./components/Border"));
+const Rotate = lazy(() => import("./components/Rotate"));
 
 const EditingPage = () => {
   const [elId, setElId] = useState(1);
   // const [previousWork, setPreviousWork] = useState([]);
-  const [imageUrl, setImageUrl] = useState("");
-  const [customImageUrl, setCustomImageUrl] = useState(imageUrl);
+  const [imageUrl, setImageUrl] = useState({ name: "", url: "" });
+  const [customImageUrl, setCustomImageUrl] = useState(imageUrl.url);
 
   const components = {
     1: <Crop />,
@@ -27,8 +27,8 @@ const EditingPage = () => {
   };
 
   useEffect(() => {
-    setCustomImageUrl(imageUrl);
-  }, [imageUrl]);
+    setCustomImageUrl(imageUrl.url);
+  }, [imageUrl.url]);
 
   return (
     <div className="flex w-full items-center gap-4">
@@ -67,7 +67,7 @@ const EditingPage = () => {
           <Button
             text="Delete"
             customStyle="w-[100px] py-1 bg-red-500"
-            fn={() => setImageUrl("")}
+            fn={() => setImageUrl({ name: "", url: "" })}
           />
           <Button text="Export" customStyle="w-[100px] py-1 button-gradient" />
         </div>

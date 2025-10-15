@@ -67,7 +67,7 @@ export default function ImageUpload({ setImageUrl }) {
         abortSignal: abortController.signal,
       });
       const { name, url } = uploadResponse;
-      setImageUrl(url);
+      setImageUrl({ name: name, url: url });
       // setPreviousWork((prev) => [...prev, { name: name, url: url }]);
       console.log("Upload response:", uploadResponse);
     } catch (error) {

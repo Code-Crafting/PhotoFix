@@ -1,10 +1,10 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import { useDebounce } from "../../hooks/useDebounce";
-import InputField from "../../ui/InputField";
-import { ImageContext } from "../../context/ImageContext";
-import InputLabel from "../../ui/InputLabel";
-import { aspectRatios } from "../../constants/AspectRatios";
-import MultipleOptions from "../../ui/MultipleOptions";
+import { useDebounce } from "../../../hooks/useDebounce";
+import InputField from "../../../ui/InputField";
+import { ImageContext } from "../../../context/ImageContext";
+import InputLabel from "../../../ui/InputLabel";
+import { aspectRatios } from "../../../constants/AspectRatios";
+import MultipleOptions from "../../../ui/MultipleOptions";
 
 const Crop = () => {
   const [queries, setQueries] = useState({
@@ -25,7 +25,7 @@ const Crop = () => {
   };
 
   const handleCrop = () => {
-    if (!imageUrl) return;
+    if (!imageUrl.url) return;
 
     let ratio;
     let params = [];
@@ -54,7 +54,7 @@ const Crop = () => {
       transformationCode = `/tr:${params.join(",")}`;
     }
 
-    setCustomImageUrl(`${imageUrl}${transformationCode}`);
+    setCustomImageUrl(`${imageUrl.url}${transformationCode}`);
     // console.log(transformationCode);
   };
 
