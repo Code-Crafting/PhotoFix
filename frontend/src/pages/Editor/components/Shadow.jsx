@@ -25,6 +25,7 @@ const Shadow = () => {
   const offsetY = useDebounce(defaultValues.offsetY);
 
   const handleShadow = () => {
+    if (!imageUrl.url) return;
     const isPng = imageUrl.name.includes("png");
     if (!isPng) {
       alert("Select a PNG");
