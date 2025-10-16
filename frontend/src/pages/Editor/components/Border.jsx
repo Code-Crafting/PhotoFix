@@ -46,7 +46,7 @@ const Border = () => {
   }, [width, height, borderWidth, color]);
 
   return (
-    <div className="pr-2 space-y-3 overflow-y-scroll scrollbar ">
+    <>
       {/* width */}
       <div className="flex flex-col gap-1">
         <InputLabel htmlFor="width" title="Width" />
@@ -96,7 +96,7 @@ const Border = () => {
           }
         />
       </div>
-    </div>
+    </>
   );
 };
 

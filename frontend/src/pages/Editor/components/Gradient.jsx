@@ -75,7 +75,7 @@ const Gradient = () => {
   }, [width, formColor, toColor, defaultValues.selectedGradient, isSelected]);
 
   return (
-    <div className="pr-2 space-y-3 overflow-y-scroll scrollbar">
+    <>
       <div className="flex flex-col gap-1">
         <InputLabel htmlFor="width" title="Width" />
         <InputField
@@ -135,7 +135,7 @@ const Gradient = () => {
         setterFnc={() => handleCheckbox()}
         icon={isSelected && <Icon />}
       />
-    </div>
+    </>
   );
 };
 

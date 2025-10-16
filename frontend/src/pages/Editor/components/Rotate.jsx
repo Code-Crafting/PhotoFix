@@ -36,7 +36,7 @@ const Rotate = () => {
   }, [degree, width, height, defaultValues.isClockWise]);
 
   return (
-    <div className="space-y-3">
+    <>
       {/* width */}
       <div className="flex flex-col gap-1">
         <InputLabel htmlFor="width" title="Width" />
@@ -92,7 +92,7 @@ const Rotate = () => {
           }
         />
       </div>
-    </div>
+    </>
   );
 };
 

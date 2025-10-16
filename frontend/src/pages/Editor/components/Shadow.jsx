@@ -17,7 +17,8 @@ const Shadow = () => {
     offsetY: false,
   });
 
-  const [imageUrl, setCustomImageUrl, Icon] = useContext(ImageContext);
+  const [imageUrl, setCustomImageUrl, Icon, setProgress] =
+    useContext(ImageContext);
 
   const blur = useDebounce(defaultValues.blur);
   const saturation = useDebounce(defaultValues.saturation);
@@ -30,6 +31,7 @@ const Shadow = () => {
     if (!isPng) {
       alert("Select a PNG");
       imageUrl.url = "";
+      setProgress(0);
     }
 
     const params = [];
@@ -57,7 +59,7 @@ const Shadow = () => {
   ]);
 
   return (
-    <div className="pr-2 space-y-3 overflow-y-scroll scrollbar">
+    <>
       <p className="my-2 text-textPrimary/50 font-semibold">
         {" "}
         Note: Works only on .png
@@ -134,7 +136,7 @@ const Shadow = () => {
           setIsInverted((prev) => ({ ...prev, offsetY: !prev.offsetY }))
         }
       />
-    </div>
+    </>
   );
 };
 

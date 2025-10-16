@@ -154,7 +154,7 @@ const AddText = () => {
   }, [isSelected.bgColor, isSelected.textColor]);
 
   return (
-    <div className="pr-2 space-y-3 overflow-y-scroll scrollbar ">
+    <>
       {/* text field */}
       <div className="flex flex-col gap-1">
         <InputLabel htmlFor="text" title="Text" />
@@ -254,7 +254,7 @@ const AddText = () => {
           }
         />
       </div>
-    </div>
+    </>
   );
 };
 

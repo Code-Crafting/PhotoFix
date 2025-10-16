@@ -24,20 +24,6 @@
   .button-gradient {
     @apply bg-gradient-to-r from-[#ff512f] to-[#dd2476] text-white font-semibold;
   }
-
-  /* custom scrollbar */
-  .scrollbar::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  .scrollbar::-webkit-scrollbar-track {
-    display: none;
-  }
-
-  .scrollbar::-webkit-scrollbar-thumb {
-    background: var(--color-primary-dark);
-    border-radius: 100vh;
-  }
 }
 .con {
   @apply max-w-[1280px] mx-auto;

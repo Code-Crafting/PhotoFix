@@ -37,21 +37,21 @@ export const editingTools = [
     title: "Rotate",
     icon: TbRotateRectangle,
   },
-  {
-    id: 7,
-    title: "AI Background Removal",
-    icon: FaEraser,
-  },
-  {
-    id: 8,
-    title: "Change Background",
-    icon: AiOutlineBgColors,
-  },
-  {
-    id: 9,
-    title: "Text to Image Generation",
-    subtitle:
-      "Type your imagination — generate high-quality images from simple text prompts powered by advanced generative AI models.",
-    icon: MdOutlineTextFields,
-  },
+  // {
+  //   id: 7,
+  //   title: "AI Background Removal",
+  //   icon: FaEraser,
+  // },
+  // {
+  //   id: 8,
+  //   title: "Change Background",
+  //   icon: AiOutlineBgColors,
+  // },
+  // {
+  //   id: 9,
+  //   title: "Text to Image Generation",
+  //   subtitle:
+  //     "Type your imagination — generate high-quality images from simple text prompts powered by advanced generative AI models.",
+  //   icon: MdOutlineTextFields,
+  // },
 ];
