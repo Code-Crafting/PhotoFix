@@ -3,6 +3,8 @@ import RangeInput from "../../../ui/RangeInput";
 import { useDebounce } from "../../../hooks/useDebounce";
 import { ImageContext } from "../../../context/ImageContext";
 import CheckBox from "../../../ui/Checkbox";
+import Modal from "../../../components/Modal";
+import Alert from "../../../ui/Alert";
 
 const Shadow = () => {
   const [defaultValues, setDefaultValues] = useState({
@@ -16,7 +18,7 @@ const Shadow = () => {
     offsetX: false,
     offsetY: false,
   });
-
+  const [showModal, setShowModal] = useState(false);
   const [imageUrl, setCustomImageUrl, Icon, setProgress] =
     useContext(ImageContext);
 
@@ -29,9 +31,10 @@ const Shadow = () => {
     if (!imageUrl.url) return;
     const isPng = imageUrl.name.includes("png");
     if (!isPng) {
-      alert("Select a PNG");
+      setShowModal(true);
       imageUrl.url = "";
       setProgress(0);
+      return;
     }
 
     const params = [];
@@ -136,6 +139,10 @@ const Shadow = () => {
           setIsInverted((prev) => ({ ...prev, offsetY: !prev.offsetY }))
         }
       />
+
+      <Modal closeFnc={() => setShowModal(false)} showModal={showModal}>
+        <Alert message="Oops! This feture works best with PNG images. Please select a PNG file to use it." />
+      </Modal>
     </>
   );
 };

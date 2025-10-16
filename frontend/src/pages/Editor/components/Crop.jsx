@@ -5,6 +5,9 @@ import { ImageContext } from "../../../context/ImageContext";
 import InputLabel from "../../../ui/InputLabel";
 import { aspectRatios } from "../../../constants/AspectRatios";
 import MultipleOptions from "../../../ui/MultipleOptions";
+import { ShowModal } from "../../../context/ShowModal";
+import Modal from "../../../components/Modal";
+import Alert from "../../../ui/Alert";
 
 const Crop = () => {
   const [queries, setQueries] = useState({
@@ -15,10 +18,11 @@ const Crop = () => {
   const debouncedWidth = useDebounce(queries.width);
   const debouncedHeight = useDebounce(queries.height);
   const [imageUrl, setCustomImageUrl] = useContext(ImageContext);
+  const [showModal, setShowModal] = useState(false);
 
   const handleRatio = (id) => {
     if (queries.height) {
-      alert("Either choose Width and Height or Width and Aspect Ratio");
+      setShowModal(true);
       return;
     }
     setSelectedRatio(id);
@@ -101,6 +105,9 @@ const Crop = () => {
           ))}
         </div>
       </div>
+      <Modal closeFnc={() => setShowModal(false)} showModal={showModal}>
+        <Alert message="Either choose Width and Height or Width and Aspect Ratio." />
+      </Modal>
     </>
   );
 };

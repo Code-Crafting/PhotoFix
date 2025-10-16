@@ -1,4 +1,4 @@
-import { useState, lazy, useEffect } from "react";
+import { useState, lazy, useEffect, Suspense } from "react";
 import { editingTools } from "../../constants/EditingTools";
 import Button from "../../ui/Button";
 import Crop from "./components/Crop";
@@ -6,14 +6,14 @@ import { ImageContext } from "../../context/ImageContext";
 import ImageUpload from "../../components/ImageUpload";
 import { TiTick } from "react-icons/ti";
 import Loading from "../../components/Loading";
-import Tools from "./ui/Tools";
+import Tools from "../../ui/Tools";
 const AddText = lazy(() => import("./components/AddText"));
 const Shadow = lazy(() => import("./components/Shadow"));
 const Gradient = lazy(() => import("./components/Gradient"));
 const Border = lazy(() => import("./components/Border"));
 const Rotate = lazy(() => import("./components/Rotate"));
 import { PiMagicWandBold } from "react-icons/pi";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 const BgRemove = lazy(() => import("./components/BgRemove"));
 
 const EditingPage = () => {
@@ -21,7 +21,6 @@ const EditingPage = () => {
   const [progress, setProgress] = useState(0);
   const [imageUrl, setImageUrl] = useState({ name: "", url: "" });
   const [customImageUrl, setCustomImageUrl] = useState(imageUrl.url);
-  const navigate = useNavigate();
 
   // console.log(progress);
 
@@ -50,6 +49,7 @@ const EditingPage = () => {
           const { id, title, icon: Icon } = el;
           return (
             <Tools
+              key={id}
               id={id}
               elId={elId}
               title={title}
@@ -101,9 +101,9 @@ const EditingPage = () => {
           <ImageContext.Provider
             value={[imageUrl, setCustomImageUrl, TiTick, setProgress]}
           >
-            <div className="flex h-full flex-col gap-4">
-              <div className="pr-2 h-[90%] space-y-3 overflow-y-auto ">
-                {components[elId]}
+            <div className=" w-full flex h-full flex-col gap-4">
+              <div className="relative pr-2 h-[90%] space-y-3 overflow-y-auto ">
+                <Suspense fallback={<Loading />}>{components[elId]}</Suspense>
               </div>
             </div>
           </ImageContext.Provider>

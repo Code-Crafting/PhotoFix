@@ -1,9 +1,6 @@
-import React from "react";
-
 const Tools = ({ id, elId, title, setterFrn, icon: Icon }) => {
   return (
     <div
-      key={id}
       className={`relative text-textPrimary flex gap-2 items-center justify-center px-4 cursor-pointer w-max py-2`}
       onClick={setterFrn}
     >

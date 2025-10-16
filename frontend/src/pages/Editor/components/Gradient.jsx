@@ -8,6 +8,8 @@ import { ImageContext } from "../../../context/ImageContext";
 import MultipleOptions from "../../../ui/MultipleOptions";
 import { useDebounce } from "../../../hooks/useDebounce";
 import { removeHastagFormColorCode } from "../../../lib/removeHastagFromColorCode";
+import Modal from "../../../components/Modal";
+import Alert from "../../../ui/Alert";
 
 const Gradient = () => {
   const [imageUrl, setCustomImageUrl, Icon] = useContext(ImageContext);
@@ -18,6 +20,7 @@ const Gradient = () => {
     toColor: "#00000000",
   });
   const [isSelected, setIsSelected] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const width = useDebounce(defaultValues.width);
   const formColor = useDebounce(defaultValues.fromColor, 2000);
@@ -25,14 +28,16 @@ const Gradient = () => {
 
   const handleCheckbox = () => {
     if (!imageUrl.url) {
-      return alert("First select a PNG");
+      setShowModal(true);
+      return;
     }
 
     const isPng = imageUrl.url.includes("png");
     if (isPng) {
       setIsSelected(!isSelected);
     } else {
-      return alert("First select a PNG");
+      setShowModal(true);
+      return;
     }
   };
 
@@ -135,6 +140,10 @@ const Gradient = () => {
         setterFnc={() => handleCheckbox()}
         icon={isSelected && <Icon />}
       />
+
+      <Modal closeFnc={() => setShowModal(false)} showModal={showModal}>
+        <Alert message="Oops! This feture works best with PNG images. Please select a PNG file to use it." />
+      </Modal>
     </>
   );
 };
