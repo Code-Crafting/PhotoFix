@@ -14,6 +14,9 @@ const Border = lazy(() => import("./components/Border"));
 const Rotate = lazy(() => import("./components/Rotate"));
 import { PiMagicWandBold } from "react-icons/pi";
 import { Link } from "react-router";
+import Modal from "../../components/Modal";
+import Alert from "../../ui/Alert";
+import { useExport } from "../../hooks/useExport";
 const BgRemove = lazy(() => import("./components/BgRemove"));
 
 const EditingPage = () => {
@@ -21,8 +24,8 @@ const EditingPage = () => {
   const [progress, setProgress] = useState(0);
   const [imageUrl, setImageUrl] = useState({ name: "", url: "" });
   const [customImageUrl, setCustomImageUrl] = useState(imageUrl.url);
-
-  // console.log(progress);
+  const [handleExport, showModal, errorMsg, isExporting, setShowModal] =
+    useExport();
 
   const components = {
     1: <Crop />,
@@ -40,6 +43,7 @@ const EditingPage = () => {
 
   useEffect(() => {
     setCustomImageUrl(imageUrl.url);
+    // console.log("image updated");
   }, [imageUrl.url]);
 
   return (
@@ -87,14 +91,15 @@ const EditingPage = () => {
             {imageUrl.url && (
               <Button
                 text="Delete"
-                customStyle="w-[100px] py-1 bg-red-500 font-semibold"
+                customStyle="w-max px-8 py-1 bg-red-500 font-semibold"
                 fn={handleDeleteBtn}
               />
             )}
 
             <Button
-              text="Export"
-              customStyle="w-[100px] py-1 button-gradient"
+              text={isExporting ? "Exporting..." : "Export"}
+              customStyle="w-max px-8 py-1 button-gradient"
+              fn={() => handleExport(imageUrl, customImageUrl)}
             />
           </div>
 
@@ -109,6 +114,10 @@ const EditingPage = () => {
           </ImageContext.Provider>
         </div>
       </div>
+
+      <Modal showModal={showModal} closeFnc={() => setShowModal(false)}>
+        <Alert message={errorMsg} />
+      </Modal>
     </div>
   );
 };

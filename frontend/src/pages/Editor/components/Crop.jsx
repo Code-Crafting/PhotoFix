@@ -5,7 +5,6 @@ import { ImageContext } from "../../../context/ImageContext";
 import InputLabel from "../../../ui/InputLabel";
 import { aspectRatios } from "../../../constants/AspectRatios";
 import MultipleOptions from "../../../ui/MultipleOptions";
-import { ShowModal } from "../../../context/ShowModal";
 import Modal from "../../../components/Modal";
 import Alert from "../../../ui/Alert";
 

@@ -5,12 +5,11 @@ import Footer from "./components/Footer";
 import Features from "./pages/Features";
 import Pricing from "./pages/Pricing";
 import RadialGradient from "./ui/RadialGradient";
-import { lazy } from "react";
-const Editor = lazy(() => import("./pages/Editor/Editor"));
+import Editor from "./pages/Editor/Editor";
 
 function App() {
   return (
-    <div className="bg-primary-dark">
+    <div className="bg-primary-dark relative">
       <Header />
       <RadialGradient />
       <Routes>
