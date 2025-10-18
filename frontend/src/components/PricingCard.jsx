@@ -14,8 +14,8 @@ function PricingCard({
 }) {
   return (
     <div
-      className={`w-96 px-4 py-12 mt-32 mb-20 relative z-10 bg-primary-dark rounded-xl shadow-pricing ${
-        isPopular && "scale-110"
+      className={`500px:w-96 w-80 px-4 py-12 relative z-10 bg-primary-dark rounded-xl shadow-pricing ${
+        isPopular && "sm:scale-110 scale-100"
       }`}
     >
       {isPopular && (

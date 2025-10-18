@@ -4,7 +4,7 @@ import { features } from "../constants/featuresData";
 
 function Features() {
   return (
-    <div className="con pt-36">
+    <div className="con 885px:pt-36 500px:pt-32 pt-28">
       {/* heading */}
       <SectionHeading
         title="Magical"
@@ -14,7 +14,7 @@ function Features() {
       />
 
       {/* content */}
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 mt-20 relative z-10">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 500px:mt-20 mt-16 relative z-10">
         {features.map(({ id, title, subtitle, icon }) => (
           <div
             key={id}

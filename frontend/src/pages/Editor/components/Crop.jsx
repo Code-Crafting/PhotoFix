@@ -1,9 +1,9 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useDebounce } from "../../../hooks/useDebounce";
 import InputField from "../../../ui/InputField";
 import { ImageContext } from "../../../context/ImageContext";
 import InputLabel from "../../../ui/InputLabel";
-import { aspectRatios } from "../../../constants/AspectRatios";
+import { aspectRatios } from "../../../constants/aspectRatios";
 import MultipleOptions from "../../../ui/MultipleOptions";
 import Modal from "../../../components/Modal";
 import Alert from "../../../ui/Alert";

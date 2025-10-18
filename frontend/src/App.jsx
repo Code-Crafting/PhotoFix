@@ -9,7 +9,7 @@ import Editor from "./pages/Editor/Editor";
 
 function App() {
   return (
-    <div className="bg-primary-dark relative">
+    <div className="bg-primary-dark relative ">
       <Header />
       <RadialGradient />
       <Routes>

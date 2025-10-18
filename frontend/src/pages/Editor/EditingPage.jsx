@@ -1,5 +1,5 @@
 import { useState, lazy, useEffect, Suspense } from "react";
-import { editingTools } from "../../constants/EditingTools";
+import { editingTools } from "../../constants/editingTools";
 import Button from "../../ui/Button";
 import Crop from "./components/Crop";
 import { ImageContext } from "../../context/ImageContext";
@@ -47,7 +47,7 @@ const EditingPage = () => {
   }, [imageUrl.url]);
 
   return (
-    <div className="w-full">
+    <div className="w-full lg:block hidden">
       <div className="flex justify-center gap-4 mb-12">
         {editingTools.map((el) => {
           const { id, title, icon: Icon } = el;

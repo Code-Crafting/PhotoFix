@@ -10,6 +10,11 @@
   /* shadow */
   --shadow-header: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   --shadow-pricing: var(--color-secondary-dark) 0px 0px 20px;
+
+  /* breakpoints */
+  --breakpoint-1100px: 1100px;
+  --breakpoint-885px: 885px;
+  --breakpoint-500px: 500px;
 }
 @layer utilities {
   .text-gradient {
@@ -26,7 +31,7 @@
   }
 }
 .con {
-  @apply max-w-[1280px] mx-auto;
+  @apply max-w-7xl mx-auto px-2;
 }
 body {
   font-family: sans-serif;

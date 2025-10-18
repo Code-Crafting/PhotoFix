@@ -5,7 +5,7 @@ import { LuCrown } from "react-icons/lu";
 
 function Pricing() {
   return (
-    <div className="con pt-36">
+    <div className="con 885px:pt-36 500px:pt-32 pt-28">
       {/* heading */}
       <SectionHeading
         title="Choose Your"
@@ -14,7 +14,7 @@ function Pricing() {
       />
 
       {/* content */}
-      <div className="flex justify-center gap-12">
+      <div className="885px:mt-36 500px:mt-20 mt-16 flex 885px:flex-row flex-col items-center justify-center 885px:gap-12 sm:gap-24 gap-18">
         <PricingCard
           icon={FaRegStar}
           title="Free"

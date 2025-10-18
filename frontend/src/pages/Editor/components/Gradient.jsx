@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { gradientDirections } from "../../../constants/GradientDirections";
+import { gradientDirections } from "../../../constants/gradientDirections";
 import ColorPicker from "../../../ui/ColorPicker";
 import Checkbox from "../../../ui/Checkbox";
 import InputLabel from "../../../ui/InputLabel";

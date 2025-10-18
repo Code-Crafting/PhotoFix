@@ -12,19 +12,19 @@ function Hero() {
   const navigate = useNavigate();
 
   return (
-    <div className="relative flex items-center justify-between z-10 gap-4 pt-52">
+    <div className="relative flex 885px:flex-row flex-col items-center justify-between z-10 885px:gap-4 gap-8 885px:pt-52 500px:pt-42 pt-34">
       {/* left */}
-      <div className="w-1/2 ">
-        <h1 className="text-6xl text-textPrimary capitalize font-bold leading-18">
+      <div className="885px:w-1/2 sm:w-3/4 w-full text-center 885px:text-left">
+        <h1 className="1100px:text-6xl 500px:text-5xl text-4xl text-textPrimary capitalize font-bold 1100px:leading-18 500px:leading-14 leading-12">
           Turn Every Photo <br /> into a{" "}
           <span className="text-gradient">Masterpiece</span>
         </h1>
-        <p className="py-2 text-textPrimary/50 leading-6">
+        <p className="py-2 text-textPrimary/50 leading-6 500px:text-lg text-sm">
           Transform your photos with AI-powered editing tools. Remove
           backgrounds, change backgrounds, and create stunning visuals in
           seconds. Drop a photo. We will do the magic.
         </p>
-        <div className="flex mt-2">
+        <div className="flex mt-2 885px:justify-start justify-center">
           <Button
             icon={FiUpload}
             iconStyle="text-lg"
@@ -36,8 +36,8 @@ function Hero() {
       </div>
 
       {/* right */}
-      <div className="w-1/2 grid place-items-center ">
-        <div className="max-w-md rounded-xl overflow-hidden shadow-header">
+      <div className="885px:w-1/2 grid place-items-center ">
+        <div className="1100px:max-w-md 885px:max-w-sm max-w-xl rounded-xl overflow-hidden shadow-header">
           <ReactCompareSlider
             itemOne={
               <ReactCompareSliderImage src={beforeImg} alt="Image one" />

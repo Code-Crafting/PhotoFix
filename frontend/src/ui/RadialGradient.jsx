@@ -11,7 +11,7 @@ function RadialGradient() {
           <div
             key={id}
             className={`absolute bg-radial ${gradient} ${position} ${width} rounded-full blur-3xl animate-pulse transition duration-75`}
-            style={{ transform: `translateY(${scrollY * 0.9}px)` }}
+            style={{ transform: `translateY(${scrollY * 1}px)` }}
           ></div>
         );
       })}
