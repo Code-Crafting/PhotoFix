@@ -7,6 +7,16 @@
   --color-secondary-dark: #321f1a;
   --color-textPrimary: #fffdf6;
 
+  /* light */
+  --color-light: #ffffff;
+  --color-textLight: #121212;
+  --color-textSecondary: #5a5a5a;
+  --color-nav: #f5f5f5;
+  --color-signUp: #f35b3a;
+  --color-logIn: #fa2d00;
+  --color-card: #f1f1f1;
+  --color-editorCard: #dbd9d9;
+
   /* shadow */
   --shadow-header: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   --shadow-pricing: var(--color-secondary-dark) 0px 0px 20px;
@@ -29,13 +39,17 @@
   .button-gradient {
     @apply bg-gradient-to-r from-[#ff512f] to-[#dd2476] text-white font-semibold;
   }
+  .radial {
+    @apply from-[#0a0605] via-orange-800  via-orange-700  to-orange-600;
+  }
+
+  .radialLight {
+    @apply from-[#F093FB] via-[#F5576C] to-[#B12A5B];
+  }
 }
 .con {
   @apply max-w-7xl mx-auto px-2;
 }
 body {
   font-family: sans-serif;
-}
-.active {
-  color: rgba(255, 253, 246, 0.5);
 }

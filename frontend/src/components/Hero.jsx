@@ -7,19 +7,30 @@ import afterImg from "../assets/images/BeforeAfter/afterImg.webp";
 import Button from "../ui/Button";
 import { FiUpload } from "react-icons/fi";
 import { useNavigate } from "react-router";
+import { useContext } from "react";
+import { Theme } from "../context/Theme";
 
 function Hero() {
   const navigate = useNavigate();
+  const [isDark] = useContext(Theme);
 
   return (
     <div className="relative flex 885px:flex-row flex-col items-center justify-between z-10 885px:gap-4 gap-8 885px:pt-52 500px:pt-42 pt-34">
       {/* left */}
       <div className="885px:w-1/2 sm:w-3/4 w-full text-center 885px:text-left">
-        <h1 className="1100px:text-6xl 500px:text-5xl text-4xl text-textPrimary capitalize font-bold 1100px:leading-18 500px:leading-14 leading-12">
+        <h1
+          className={`1100px:text-6xl 500px:text-5xl text-4xl ${
+            isDark ? "text-textLight/80" : "text-textPrimary"
+          } capitalize font-bold 1100px:leading-18 500px:leading-14 leading-12`}
+        >
           Turn Every Photo <br /> into a{" "}
           <span className="text-gradient">Masterpiece</span>
         </h1>
-        <p className="py-2 text-textPrimary/50 leading-6 500px:text-lg text-sm">
+        <p
+          className={`py-2 ${
+            isDark ? "text-textSecondary" : "text-textPrimary/50"
+          } leading-6 500px:text-lg text-sm`}
+        >
           Transform your photos with AI-powered editing tools. Remove
           backgrounds, change backgrounds, and create stunning visuals in
           seconds. Drop a photo. We will do the magic.
@@ -45,7 +56,11 @@ function Hero() {
             itemTwo={<ReactCompareSliderImage src={afterImg} alt="Image two" />}
           />
         </div>
-        <p className="mt-3 text-textPrimary/50 tracking-wider">
+        <p
+          className={`mt-3 ${
+            isDark ? "text-textSecondary" : "text - textPrimary / 50"
+          } tracking-wider`}
+        >
           Drag the slider to see the magic✨
         </p>
       </div>

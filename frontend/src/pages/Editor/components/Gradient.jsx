@@ -10,9 +10,11 @@ import { useDebounce } from "../../../hooks/useDebounce";
 import { removeHastagFormColorCode } from "../../../lib/removeHastagFromColorCode";
 import Modal from "../../../components/Modal";
 import Alert from "../../../ui/Alert";
+import { Theme } from "../../../context/Theme";
 
 const Gradient = () => {
   const [imageUrl, setCustomImageUrl, Icon] = useContext(ImageContext);
+  const [isDark] = useContext(Theme);
   const [defaultValues, setdefaultValues] = useState({
     width: "",
     selectedGradient: 1,
@@ -93,7 +95,13 @@ const Gradient = () => {
       </div>
 
       <div>
-        <p className="text-textPrimary text-lg">Directions</p>
+        <p
+          className={`${
+            isDark ? "text-textLight" : "text-textPrimary"
+          } text-lg`}
+        >
+          Directions
+        </p>
         <div className="flex flex-wrap gap-2">
           {gradientDirections.map((el) => {
             const { id, direction } = el;

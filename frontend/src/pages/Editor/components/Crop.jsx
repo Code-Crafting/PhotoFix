@@ -7,6 +7,7 @@ import { aspectRatios } from "../../../constants/aspectRatios";
 import MultipleOptions from "../../../ui/MultipleOptions";
 import Modal from "../../../components/Modal";
 import Alert from "../../../ui/Alert";
+import { Theme } from "../../../context/Theme";
 
 const Crop = () => {
   const [queries, setQueries] = useState({
@@ -18,6 +19,7 @@ const Crop = () => {
   const debouncedHeight = useDebounce(queries.height);
   const [imageUrl, setCustomImageUrl] = useContext(ImageContext);
   const [showModal, setShowModal] = useState(false);
+  const [isDark] = useContext(Theme);
 
   const handleRatio = (id) => {
     if (queries.height) {

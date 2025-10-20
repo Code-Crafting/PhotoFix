@@ -5,6 +5,7 @@ import { ImageContext } from "../../../context/ImageContext";
 import CheckBox from "../../../ui/Checkbox";
 import Modal from "../../../components/Modal";
 import Alert from "../../../ui/Alert";
+import { Theme } from "../../../context/Theme";
 
 const Shadow = () => {
   const [defaultValues, setDefaultValues] = useState({
@@ -13,11 +14,11 @@ const Shadow = () => {
     offsetX: "2",
     offsetY: "2",
   });
-
   const [isInverted, setIsInverted] = useState({
     offsetX: false,
     offsetY: false,
   });
+  const [isDark] = useContext(Theme);
   const [showModal, setShowModal] = useState(false);
   const [imageUrl, setCustomImageUrl, Icon, setProgress] =
     useContext(ImageContext);
@@ -63,9 +64,13 @@ const Shadow = () => {
 
   return (
     <>
-      <p className="my-2 text-textPrimary/50 font-semibold">
+      <p
+        className={`my-2 ${
+          isDark ? "text-textLight" : "text-textPrimary/50"
+        } font-semibold`}
+      >
         {" "}
-        Note: Works only on .png
+        Note: Works only on PNG
       </p>
       <RangeInput
         title="Blur"

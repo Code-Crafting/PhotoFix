@@ -1,4 +1,4 @@
-import { useState, lazy, useEffect, Suspense } from "react";
+import { useState, lazy, useEffect, Suspense, useContext } from "react";
 import { editingTools } from "../../constants/editingTools";
 import Button from "../../ui/Button";
 import Crop from "./components/Crop";
@@ -17,6 +17,7 @@ import { Link } from "react-router";
 import Modal from "../../components/Modal";
 import Alert from "../../ui/Alert";
 import { useExport } from "../../hooks/useExport";
+import { Theme } from "../../context/Theme";
 const BgRemove = lazy(() => import("./components/BgRemove"));
 
 const EditingPage = () => {
@@ -26,6 +27,7 @@ const EditingPage = () => {
   const [customImageUrl, setCustomImageUrl] = useState(imageUrl.url);
   const [handleExport, showModal, errorMsg, isExporting, setShowModal] =
     useExport();
+  const [isDark] = useContext(Theme);
 
   const components = {
     1: <Crop />,
@@ -69,12 +71,16 @@ const EditingPage = () => {
 
       <div className="flex justify-center items-center  gap-4">
         {/* image */}
-        <div className="w-1/2 bg-secondary-dark min-h-[500px] rounded-xl px-2 py-4 grid place-items-center relative">
+        <div
+          className={`w-1/2 ${
+            isDark ? "bg-editorCard" : "bg-secondary-dark"
+          } min-h-[500px] rounded-xl px-2 py-4 grid place-items-center relative`}
+        >
           {!progress ? (
             <ImageUpload
-              // setPreviousWork={setPreviousWork}
               setImageUrl={setImageUrl}
               setProgress={setProgress}
+              isDark={isDark}
             />
           ) : progress > 0 && !customImageUrl ? (
             <Loading />
@@ -86,19 +92,23 @@ const EditingPage = () => {
         </div>
 
         {/* required fields */}
-        <div className="w-1/3 h-[500px] features-gradient p-4 rounded-lg shadow-header space-y-3">
+        <div
+          className={`w-1/3 h-[500px] ${
+            isDark ? "bg-editorCard" : "features-gradient"
+          } p-4 rounded-lg space-y-3`}
+        >
           <div className="flex gap-2 justify-end">
             {imageUrl.url && (
               <Button
                 text="Delete"
-                customStyle="w-max px-8 py-1 bg-red-500 font-semibold"
+                customStyle="w-max px-8 py-2 bg-red-500 font-semibold"
                 fn={handleDeleteBtn}
               />
             )}
 
             <Button
               text={isExporting ? "Exporting..." : "Export"}
-              customStyle="w-max px-8 py-1 button-gradient"
+              customStyle="w-max px-8 py-2 button-gradient"
               fn={() => handleExport(imageUrl, customImageUrl)}
             />
           </div>
@@ -107,7 +117,7 @@ const EditingPage = () => {
             value={[imageUrl, setCustomImageUrl, TiTick, setProgress]}
           >
             <div className=" w-full flex h-full flex-col gap-4">
-              <div className="relative pr-2 h-[90%] space-y-3 overflow-y-auto ">
+              <div className="relative pr-2 h-[90%] space-y-3 overflow-y-auto">
                 <Suspense fallback={<Loading />}>{components[elId]}</Suspense>
               </div>
             </div>

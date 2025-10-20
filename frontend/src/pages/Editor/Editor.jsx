@@ -1,8 +1,6 @@
 import { lazy, Suspense } from "react";
 import Loading from "../../components/Loading";
 import EditPageError from "../../components/EditPageError";
-
-// import EditingPage from "./EditingPage";
 const EditingPage = lazy(() => import("./EditingPage"));
 
 function Editor() {

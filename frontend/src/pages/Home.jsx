@@ -1,4 +1,3 @@
-import RadialGradient from "../ui/RadialGradient";
 import Features from "./Features";
 import Pricing from "./Pricing";
 import Hero from "../components/Hero";

@@ -1,6 +1,8 @@
+import { useContext } from "react";
 import Button from "../ui/Button";
 import Icon from "../ui/Icon";
 import { FaCheckCircle, FaMinusCircle } from "react-icons/fa";
+import { Theme } from "../context/Theme";
 
 function PricingCard({
   icon,
@@ -12,11 +14,13 @@ function PricingCard({
   facilities,
   isPopular,
 }) {
+  const [isDark] = useContext(Theme);
+
   return (
     <div
-      className={`500px:w-96 w-80 px-4 py-12 relative z-10 bg-primary-dark rounded-xl shadow-pricing ${
-        isPopular && "sm:scale-110 scale-100"
-      }`}
+      className={`500px:w-96 w-80 px-4 py-12 relative z-10 ${
+        isDark ? "bg-card" : "bg-primary-dark"
+      } rounded-xl shadow-pricing ${isPopular && "sm:scale-110 scale-100"}`}
     >
       {isPopular && (
         <div className="absolute text-textPrimary top-0 left-1/2 -translate-y-1/2 -translate-x-1/2 px-6 py-2 rounded-full icon-gradient">
@@ -26,10 +30,28 @@ function PricingCard({
       <div className="grid place-items-center gap-2">
         <Icon icon={icon} />
 
-        <h1 className="text-textPrimary text-3xl font-bold">{title}</h1>
-        <p className="text-textPrimary/50">{subtitle}</p>
-        <p className="text-textPrimary/50 tracking-wide">
-          <span className="text-textPrimary text-4xl">
+        <h1
+          className={`${
+            isDark ? "text-textLight/80" : "text-textPrimary"
+          } text-3xl font-bold`}
+        >
+          {title}
+        </h1>
+        <p
+          className={`${isDark ? "text-textSecondary" : "text-textPrimary/50"}`}
+        >
+          {subtitle}
+        </p>
+        <p
+          className={`${
+            isDark ? "text-textSecondary" : "text-textPrimary/50"
+          } tracking-wide`}
+        >
+          <span
+            className={`${
+              isDark ? "text-textLight/80" : "text-textPrimary"
+            } text-4xl`}
+          >
             {currency}
             {price}
           </span>{" "}
@@ -37,14 +59,26 @@ function PricingCard({
         </p>
       </div>
 
-      <div className="mt-4 text-textPrimary space-y-2 mb-8">
+      <div
+        className={`mt-4 ${
+          isDark ? "text-textLight/80" : "text-textPrimary"
+        } space-y-2 mb-8`}
+      >
         {facilities.map((el, i) => {
           return (
             <div key={i} className="flex gap-2 items-center">
               {el.isProvided ? (
-                <FaCheckCircle className="text-lg text-[#51271d]" />
+                <FaCheckCircle
+                  className={`text-lg ${
+                    isDark ? "text-signUp" : "text-[#51271d]"
+                  }`}
+                />
               ) : (
-                <FaMinusCircle className="text-lg text-textPrimary/50" />
+                <FaMinusCircle
+                  className={`text-lg ${
+                    isDark ? "text-textSecondary" : "text-textPrimary/50"
+                  }`}
+                />
               )}
               <p>{el.facility}</p>
             </div>
