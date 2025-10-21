@@ -78,13 +78,13 @@ function Header() {
               })}
               <Button
                 customStyle={`${commonStyle.btn} ${
-                  isLight ? "bg-logIn" : "bg-[#51271d]"
+                  isLight ? "bg-logIn" : "bg-logIn-dark"
                 }`}
                 text="Login"
               />
               <Button
                 customStyle={`${commonStyle.btn} ${
-                  isLight ? "bg-signUp" : "bg-[#643b32]"
+                  isLight ? "bg-signUp" : "bg-signUp-dark"
                 }`}
                 text="Sign up"
               />

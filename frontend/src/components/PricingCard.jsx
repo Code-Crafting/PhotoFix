@@ -72,7 +72,7 @@ function PricingCard({
               {el.isProvided ? (
                 <FaCheckCircle
                   className={`text-lg ${
-                    isLight ? "text-signUp" : "text-[#51271d]"
+                    isLight ? "text-signUp" : "text-logIn-dark"
                   }`}
                 />
               ) : (

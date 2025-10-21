@@ -49,14 +49,14 @@ const NavbarMobile = ({ isOpen, setIsOpen }) => {
       <div className="flex justify-between gap-2 mt-4">
         <Button
           customStyle={`${commonBtnStyle} ${
-            isLight ? "bg-logIn" : "bg-[#51271d]"
+            isLight ? "bg-logIn" : "bg-logIn-dark"
           }`}
           text="Login"
           radius="rounded-md"
         />
         <Button
           customStyle={`${commonBtnStyle} ${
-            isLight ? "bg-signUp" : "bg-[#643b32]"
+            isLight ? "bg-signUp" : "bg-signUp-dark"
           }`}
           text="Sign up"
           radius="rounded-md"

@@ -1,11 +1,14 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@plugin 'tailwind-scrollbar';
 
 @theme {
   /* dark */
   --color-primary-dark: #0a0605;
   --color-secondary-dark: #321f1a;
   --color-textPrimary: #fffdf6;
+  --color-logIn-dark: #51271d;
+  --color-signUp-dark: #643b32;
 
   /* light */
   --color-light: #ffffff;

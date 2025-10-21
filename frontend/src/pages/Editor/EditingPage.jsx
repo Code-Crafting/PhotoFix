@@ -117,7 +117,17 @@ const EditingPage = () => {
             value={[imageUrl, setCustomImageUrl, TiTick, setProgress]}
           >
             <div className=" w-full flex h-full flex-col gap-4">
-              <div className="relative pr-2 h-[90%] space-y-3 overflow-y-auto">
+              <div
+                className={`relative pr-2 h-[90%] space-y-3 overflow-y-auto ${
+                  isLight
+                    ? "[&::-webkit-scrollbar-thumb]:bg-textSecondary [&::-webkit-scrollbar-track]:bg-textLight/90"
+                    : "[&::-webkit-scrollbar-thumb]:bg-signUp-dark [&::-webkit-scrollbar-track]:bg-primary-dark"
+                } [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:rounded-full
+            
+            [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:border-[2px]
+            [&::-webkit-scrollbar-thumb]:border-transparent
+            [&::-webkit-scrollbar-thumb]:bg-clip-padding`}
+              >
                 <Suspense fallback={<Loading />}>{components[elId]}</Suspense>
               </div>
             </div>
