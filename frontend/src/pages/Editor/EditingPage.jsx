@@ -1,5 +1,5 @@
 import { useState, lazy, useEffect, Suspense, useContext } from "react";
-import { editingTools } from "../../constants/editingTools";
+import { editingTools } from "../../constants/editingTools.js";
 import Button from "../../ui/Button";
 import Crop from "./components/Crop";
 import { ImageContext } from "../../context/ImageContext";
