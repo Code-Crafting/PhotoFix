@@ -11,7 +11,7 @@ import Button from "../ui/Button";
 
 const authEndpoint = import.meta.env.VITE_AUTH_ENDPOINT;
 
-export default function ImageUpload({ setImageUrl, setProgress, isDark }) {
+export default function ImageUpload({ setImageUrl, setProgress, isLight }) {
   const fileInputRef = useRef();
   const abortController = new AbortController();
 
@@ -108,7 +108,7 @@ export default function ImageUpload({ setImageUrl, setProgress, isDark }) {
       </label>
       <p
         className={`mt-2 ${
-          isDark ? "text-textLight/80" : "text-textPrimary/50"
+          isLight ? "text-textLight/80" : "text-textPrimary/50"
         }`}
       >
         Support image type: .jpeg, .jpg, .png, .webp

@@ -18,7 +18,7 @@ const Shadow = () => {
     offsetX: false,
     offsetY: false,
   });
-  const [isDark] = useContext(Theme);
+  const [isLight] = useContext(Theme);
   const [showModal, setShowModal] = useState(false);
   const [imageUrl, setCustomImageUrl, Icon, setProgress] =
     useContext(ImageContext);
@@ -66,7 +66,7 @@ const Shadow = () => {
     <>
       <p
         className={`my-2 ${
-          isDark ? "text-textLight" : "text-textPrimary/50"
+          isLight ? "text-textLight" : "text-textPrimary/50"
         } font-semibold`}
       >
         {" "}

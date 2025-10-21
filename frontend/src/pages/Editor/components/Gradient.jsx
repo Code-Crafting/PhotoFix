@@ -14,7 +14,7 @@ import { Theme } from "../../../context/Theme";
 
 const Gradient = () => {
   const [imageUrl, setCustomImageUrl, Icon] = useContext(ImageContext);
-  const [isDark] = useContext(Theme);
+  const [isLight] = useContext(Theme);
   const [defaultValues, setdefaultValues] = useState({
     width: "",
     selectedGradient: 1,
@@ -97,7 +97,7 @@ const Gradient = () => {
       <div>
         <p
           className={`${
-            isDark ? "text-textLight" : "text-textPrimary"
+            isLight ? "text-textLight" : "text-textPrimary"
           } text-lg`}
         >
           Directions

@@ -3,7 +3,7 @@ import { Theme } from "../context/Theme";
 import InputLabel from "./InputLabel";
 
 const RangeInput = ({ title, defaultValue, setterFnc, min, max }) => {
-  const [isDark] = useContext(Theme);
+  const [isLight] = useContext(Theme);
   return (
     <div>
       <InputLabel title={title} />
@@ -14,10 +14,10 @@ const RangeInput = ({ title, defaultValue, setterFnc, min, max }) => {
         value={defaultValue}
         onChange={setterFnc}
         className={`w-full h-2 ${
-          isDark ? "bg-textSecondary/50" : "bg-primary-dark"
+          isLight ? "bg-textSecondary/50" : "bg-primary-dark"
         } rounded-lg appearance-none cursor-pointer`}
       />
-      <div className={`flex justify-between ${isDark && "text-textLight"}`}>
+      <div className={`flex justify-between ${isLight && "text-textLight"}`}>
         <p>{min}</p>
         <p>{max}</p>
       </div>

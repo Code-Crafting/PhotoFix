@@ -19,7 +19,7 @@ const Crop = () => {
   const debouncedHeight = useDebounce(queries.height);
   const [imageUrl, setCustomImageUrl] = useContext(ImageContext);
   const [showModal, setShowModal] = useState(false);
-  const [isDark] = useContext(Theme);
+  const [isLight] = useContext(Theme);
 
   const handleRatio = (id) => {
     if (queries.height) {

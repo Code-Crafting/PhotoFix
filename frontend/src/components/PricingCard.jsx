@@ -14,12 +14,12 @@ function PricingCard({
   facilities,
   isPopular,
 }) {
-  const [isDark] = useContext(Theme);
+  const [isLight] = useContext(Theme);
 
   return (
     <div
       className={`500px:w-96 w-80 px-4 py-12 relative z-10 ${
-        isDark ? "bg-card" : "bg-primary-dark"
+        isLight ? "bg-card" : "bg-primary-dark"
       } rounded-xl shadow-pricing ${isPopular && "sm:scale-110 scale-100"}`}
     >
       {isPopular && (
@@ -32,24 +32,26 @@ function PricingCard({
 
         <h1
           className={`${
-            isDark ? "text-textLight/80" : "text-textPrimary"
+            isLight ? "text-textLight/80" : "text-textPrimary"
           } text-3xl font-bold`}
         >
           {title}
         </h1>
         <p
-          className={`${isDark ? "text-textSecondary" : "text-textPrimary/50"}`}
+          className={`${
+            isLight ? "text-textSecondary" : "text-textPrimary/50"
+          }`}
         >
           {subtitle}
         </p>
         <p
           className={`${
-            isDark ? "text-textSecondary" : "text-textPrimary/50"
+            isLight ? "text-textSecondary" : "text-textPrimary/50"
           } tracking-wide`}
         >
           <span
             className={`${
-              isDark ? "text-textLight/80" : "text-textPrimary"
+              isLight ? "text-textLight/80" : "text-textPrimary"
             } text-4xl`}
           >
             {currency}
@@ -61,7 +63,7 @@ function PricingCard({
 
       <div
         className={`mt-4 ${
-          isDark ? "text-textLight/80" : "text-textPrimary"
+          isLight ? "text-textLight/80" : "text-textPrimary"
         } space-y-2 mb-8`}
       >
         {facilities.map((el, i) => {
@@ -70,13 +72,13 @@ function PricingCard({
               {el.isProvided ? (
                 <FaCheckCircle
                   className={`text-lg ${
-                    isDark ? "text-signUp" : "text-[#51271d]"
+                    isLight ? "text-signUp" : "text-[#51271d]"
                   }`}
                 />
               ) : (
                 <FaMinusCircle
                   className={`text-lg ${
-                    isDark ? "text-textSecondary" : "text-textPrimary/50"
+                    isLight ? "text-textSecondary" : "text-textPrimary/50"
                   }`}
                 />
               )}

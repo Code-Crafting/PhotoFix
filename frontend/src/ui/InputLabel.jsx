@@ -2,12 +2,12 @@ import { useContext } from "react";
 import { Theme } from "../context/Theme";
 
 const InputLabel = ({ htmlFor, title }) => {
-  const [isDark] = useContext(Theme);
+  const [isLight] = useContext(Theme);
   return (
     <label
       htmlFor={htmlFor}
       className={`${
-        isDark ? "text-textLight" : "text-textPrimary"
+        isLight ? "text-textLight" : "text-textPrimary"
       } text-lg cursor-pointer`}
     >
       {title}

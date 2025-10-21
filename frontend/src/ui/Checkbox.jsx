@@ -2,12 +2,12 @@ import { useContext } from "react";
 import { Theme } from "../context/Theme";
 
 function Checkbox({ title, icon, setterFnc }) {
-  const [isDark] = useContext(Theme);
+  const [isLight] = useContext(Theme);
   return (
     <div className="flex gap-2 items-center">
       <div
         className={`w-4 aspect-square ${
-          isDark ? "bg-textLight/70" : "bg-primary-dark"
+          isLight ? "bg-textLight/70" : "bg-primary-dark"
         } rounded-sm grid place-items-center cursor-pointer`}
         onClick={setterFnc}
       >
@@ -16,7 +16,7 @@ function Checkbox({ title, icon, setterFnc }) {
       <p
         onClick={setterFnc}
         className={`${
-          isDark ? "text-textLight" : "text-textPrimary"
+          isLight ? "text-textLight" : "text-textPrimary"
         } cursor-pointer`}
       >
         {title}

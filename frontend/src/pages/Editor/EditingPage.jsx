@@ -27,7 +27,7 @@ const EditingPage = () => {
   const [customImageUrl, setCustomImageUrl] = useState(imageUrl.url);
   const [handleExport, showModal, errorMsg, isExporting, setShowModal] =
     useExport();
-  const [isDark] = useContext(Theme);
+  const [isLight] = useContext(Theme);
 
   const components = {
     1: <Crop />,
@@ -73,14 +73,14 @@ const EditingPage = () => {
         {/* image */}
         <div
           className={`w-1/2 ${
-            isDark ? "bg-editorCard" : "bg-secondary-dark"
+            isLight ? "bg-editorCard" : "bg-secondary-dark"
           } min-h-[500px] rounded-xl px-2 py-4 grid place-items-center relative`}
         >
           {!progress ? (
             <ImageUpload
               setImageUrl={setImageUrl}
               setProgress={setProgress}
-              isDark={isDark}
+              isLight={isLight}
             />
           ) : progress > 0 && !customImageUrl ? (
             <Loading />
@@ -94,7 +94,7 @@ const EditingPage = () => {
         {/* required fields */}
         <div
           className={`w-1/3 h-[500px] ${
-            isDark ? "bg-editorCard" : "features-gradient"
+            isLight ? "bg-editorCard" : "features-gradient"
           } p-4 rounded-lg space-y-3`}
         >
           <div className="flex gap-2 justify-end">

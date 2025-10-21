@@ -3,11 +3,11 @@ import { TbDeviceDesktopExclamation } from "react-icons/tb";
 import { Theme } from "../context/Theme";
 
 const EditPageError = () => {
-  const [isDark] = useContext(Theme);
+  const [isLight] = useContext(Theme);
   return (
     <div
       className={`md:w-1/2 500px:w-2/3 mx-auto lg:hidden flex flex-col items-center justify-center ${
-        isDark ? "text-textLight" : "text-textPrimary/50"
+        isLight ? "text-textLight" : "text-textPrimary/50"
       } gap-4`}
     >
       <TbDeviceDesktopExclamation className="text-6xl" />

@@ -10,11 +10,13 @@ import { useState } from "react";
 import { Theme } from "./context/Theme";
 
 function App() {
-  const [isDark, setIsDark] = useState(false);
-  console.log(isDark);
+  const [isLight, setIsLight] = useState(
+    JSON.parse(localStorage.getItem("isLight")) || false
+  );
+  localStorage.setItem("isLight", JSON.stringify(isLight));
   return (
-    <div className={`${isDark ? "bg-light" : "bg-primary-dark"} relative `}>
-      <Theme.Provider value={[isDark, setIsDark]}>
+    <div className={`${isLight ? "bg-light" : "bg-primary-dark"} relative `}>
+      <Theme.Provider value={[isLight, setIsLight]}>
         <Header />
         <RadialGradient />
         <Routes>
