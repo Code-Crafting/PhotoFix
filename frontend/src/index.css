@@ -25,6 +25,7 @@
   --breakpoint-1100px: 1100px;
   --breakpoint-885px: 885px;
   --breakpoint-500px: 500px;
+  --breakpoint-400px: 400px;
 }
 @layer utilities {
   .text-gradient {

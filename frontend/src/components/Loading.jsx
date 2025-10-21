@@ -1,6 +1,14 @@
+import { useContext } from "react";
+import { Theme } from "../context/Theme";
+
 const Loading = () => {
+  const [isDark] = useContext(Theme);
   return (
-    <span className="loading loading-ring loading-xl absolute top-1/2 left-1/2 -translate-x-1/2"></span>
+    <span
+      className={`loading loading-ring loading-xl absolute top-1/2 left-1/2 -translate-x-1/2 ${
+        isDark && "text-textLight"
+      }`}
+    ></span>
   );
 };
 

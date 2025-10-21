@@ -5,11 +5,13 @@ import { Link, NavLink } from "react-router";
 import { IoSunny, IoMoonSharp } from "react-icons/io5";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { menuList } from "../constants/menuList";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Theme } from "../context/Theme";
+import NavbarMobile from "./NavbarMobile";
 
 function Header() {
   const [isDark, setIsDark] = useContext(Theme);
+  const [isOpen, setIsOpen] = useState(false);
   const commonStyle = {
     btn: `885px:w-20 w-28 885px:py-1 py-2 ${isDark && "text-white"}`,
     mode: `885px:text-lg text-2xl cursor-pointer ${
@@ -33,15 +35,19 @@ function Header() {
     <div className="fixed w-full z-[9999]">
       <div className="885px:con 885px:pt-6">
         <div
-          className={` ${
+          className={`relative ${
             isDark
               ? "text-textLight bg-nav/40"
               : "text-textPrimary bg-secondary-dark/90"
           } px-6 885px:rounded-full 885px:w-3xl w-full flex items-center justify-between shadow-header backdrop-blur-sm mx-auto`}
         >
           {/* left */}
+          <NavbarMobile isOpen={isOpen} setIsOpen={setIsOpen} />
           <div className="flex gap-4 items-center">
-            <HiOutlineMenuAlt2 className="md:hidden text-3xl" />
+            <HiOutlineMenuAlt2
+              className={`md:hidden text-3xl ${isDark && "text-textLight/80"}`}
+              onClick={() => setIsOpen(true)}
+            />
             <Link to="/">
               <img
                 src={isDark ? LogoDark : LogoLight}
