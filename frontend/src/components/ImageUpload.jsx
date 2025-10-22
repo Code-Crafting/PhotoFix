@@ -8,10 +8,19 @@ import {
 } from "@imagekit/react";
 import { FiUploadCloud } from "react-icons/fi";
 import Button from "../ui/Button";
+import Modal from "./Modal";
+import Alert from "../ui/Alert";
 
 const authEndpoint = import.meta.env.VITE_AUTH_ENDPOINT;
 
-export default function ImageUpload({ setImageUrl, setProgress, isLight }) {
+export default function ImageUpload({
+  setImageUrl,
+  setProgress,
+  isLight,
+  setShowModal,
+  setErrorMsg,
+  errorMsg,
+}) {
   const fileInputRef = useRef();
   const abortController = new AbortController();
 
@@ -33,7 +42,10 @@ export default function ImageUpload({ setImageUrl, setProgress, isLight }) {
     let fileName;
     const allowedTypes = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
     if (!allowedTypes.includes(file.type)) {
-      alert("Select image only!");
+      setErrorMsg(
+        "Looks like that's not an image! Please upload a JPG, JPEG, PNG or WEBP"
+      );
+      setShowModal(true);
       return;
     } else {
       fileName = file.name;
@@ -58,18 +70,16 @@ export default function ImageUpload({ setImageUrl, setProgress, isLight }) {
         signature,
         publicKey,
         file,
-        fileName, // Optionally set a custom file name
+        fileName,
         // Progress callback to update upload progress state
         onProgress: (event) => {
           setProgress((event.loaded / event.total) * 100);
-          // console.log(event);
         },
         // Abort signal to allow cancellation of the upload if needed.
         abortSignal: abortController.signal,
       });
       const { name, url } = uploadResponse;
       setImageUrl({ name: name, url: url });
-      // setPreviousWork((prev) => [...prev, { name: name, url: url }]);
       console.log("Upload response:", uploadResponse);
     } catch (error) {
       // Handle specific error types provided by the ImageKit SDK.
@@ -113,6 +123,10 @@ export default function ImageUpload({ setImageUrl, setProgress, isLight }) {
       >
         Support image type: .jpeg, .jpg, .png, .webp
       </p>
+
+      <Modal>
+        <Alert message={errorMsg} />
+      </Modal>
     </div>
   );
 }

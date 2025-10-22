@@ -62,5 +62,12 @@ export const useExport = () => {
       .finally(() => setIsExporting(false));
   }, []);
 
-  return [handleExport, showModal, errorMsg, isExporting, setShowModal];
+  return [
+    handleExport,
+    showModal,
+    errorMsg,
+    isExporting,
+    setShowModal,
+    setErrorMsg,
+  ];
 };

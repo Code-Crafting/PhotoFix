@@ -25,8 +25,14 @@ const EditingPage = () => {
   const [progress, setProgress] = useState(0);
   const [imageUrl, setImageUrl] = useState({ name: "", url: "" });
   const [customImageUrl, setCustomImageUrl] = useState(imageUrl.url);
-  const [handleExport, showModal, errorMsg, isExporting, setShowModal] =
-    useExport();
+  const [
+    handleExport,
+    showModal,
+    errorMsg,
+    isExporting,
+    setShowModal,
+    setErrorMsg,
+  ] = useExport();
   const [isLight] = useContext(Theme);
 
   const components = {
@@ -81,6 +87,9 @@ const EditingPage = () => {
               setImageUrl={setImageUrl}
               setProgress={setProgress}
               isLight={isLight}
+              setShowModal={setShowModal}
+              setErrorMsg={setErrorMsg}
+              errorMsg={errorMsg}
             />
           ) : progress > 0 && !customImageUrl ? (
             <Loading />
