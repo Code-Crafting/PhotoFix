@@ -15,7 +15,7 @@ const client = new ImageKit({
 
 // authentication endpoint
 app.get("/auth", (req, res) => {
-  const results = client.helper.getAuthenticationParameters(); // ✅ correct method
+  const results = client.helper.getAuthenticationParameters();
   res.send({
     ...results,
     publicKey: process.env.IMAGEKIT_PUBLIC_KEY,

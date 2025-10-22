@@ -2,6 +2,7 @@ import SectionHeading from "../ui/SectionHeading";
 import PricingCard from "../components/PricingCard";
 import { FaRegStar } from "react-icons/fa";
 import { LuCrown } from "react-icons/lu";
+import { facilities } from "../constants/facilities";
 
 function Pricing() {
   return (
@@ -23,13 +24,7 @@ function Pricing() {
           currency="$"
           duration="forever"
           isPopular={false}
-          facilities={[
-            { isProvided: true, facility: "3 edits on free plan" },
-            { isProvided: true, facility: "Basic AI background removal" },
-            { isProvided: true, facility: "Standard resolution output" },
-            { isProvided: true, facility: "community support" },
-            { isProvided: false, facility: "Limited daily usage" },
-          ]}
+          facilities={facilities.nonPopular}
         />
 
         <PricingCard
@@ -40,14 +35,7 @@ function Pricing() {
           currency="$"
           duration="per month"
           isPopular={true}
-          facilities={[
-            { isProvided: true, facility: "Unlimited Edits" },
-            { isProvided: true, facility: "All AI features unloked" },
-            { isProvided: true, facility: "Up to 4K resolution" },
-            { isProvided: true, facility: "Batch Processing" },
-            { isProvided: true, facility: "API access" },
-            { isProvided: true, facility: "Commercial license" },
-          ]}
+          facilities={facilities.popular}
         />
       </div>
     </div>
