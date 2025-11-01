@@ -4,7 +4,6 @@ import Button from "../../ui/Button";
 import Crop from "./components/Crop";
 import { ImageContext } from "../../context/ImageContext";
 import ImageUpload from "../../components/ImageUpload";
-import { TiTick } from "react-icons/ti";
 import Loading from "../../components/Loading";
 import Tools from "../../ui/Tools";
 const AddText = lazy(() => import("./components/AddText"));
@@ -22,9 +21,9 @@ const BgRemove = lazy(() => import("./components/BgRemove"));
 
 const EditingPage = () => {
   const [elId, setElId] = useState(1);
-  const [progress, setProgress] = useState(0);
-  const [imageUrl, setImageUrl] = useState({ name: "", url: "" });
-  const [customImageUrl, setCustomImageUrl] = useState(imageUrl.url);
+  const [progress, setProgress, imageUrl, setImageUrl, customImageUrl] =
+    useContext(ImageContext);
+
   const [
     handleExport,
     showModal,
@@ -48,11 +47,6 @@ const EditingPage = () => {
     setImageUrl({ name: "", url: "" });
     setProgress(0);
   };
-
-  useEffect(() => {
-    setCustomImageUrl(imageUrl.url);
-    // console.log("image updated");
-  }, [imageUrl.url]);
 
   return (
     <div className="w-full lg:block hidden">
@@ -121,26 +115,21 @@ const EditingPage = () => {
               fn={() => handleExport(imageUrl, customImageUrl)}
             />
           </div>
-
-          <ImageContext.Provider
-            value={[imageUrl, setCustomImageUrl, TiTick, setProgress]}
-          >
-            <div className=" w-full flex h-full flex-col gap-4">
-              <div
-                className={`relative pr-2 h-[90%] space-y-3 overflow-y-auto ${
-                  isLight
-                    ? "[&::-webkit-scrollbar-thumb]:bg-textSecondary [&::-webkit-scrollbar-track]:bg-textLight/90"
-                    : "[&::-webkit-scrollbar-thumb]:bg-signUp-dark [&::-webkit-scrollbar-track]:bg-primary-dark"
-                } [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:rounded-full
+          <div className=" w-full flex h-full flex-col gap-4">
+            <div
+              className={`relative pr-2 h-[90%] space-y-3 overflow-y-auto ${
+                isLight
+                  ? "[&::-webkit-scrollbar-thumb]:bg-textSecondary [&::-webkit-scrollbar-track]:bg-textLight/90"
+                  : "[&::-webkit-scrollbar-thumb]:bg-signUp-dark [&::-webkit-scrollbar-track]:bg-primary-dark"
+              } [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:rounded-full
             
             [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:border-[2px]
             [&::-webkit-scrollbar-thumb]:border-transparent
             [&::-webkit-scrollbar-thumb]:bg-clip-padding`}
-              >
-                <Suspense fallback={<Loading />}>{components[elId]}</Suspense>
-              </div>
+            >
+              <Suspense fallback={<Loading />}>{components[elId]}</Suspense>
             </div>
-          </ImageContext.Provider>
+          </div>
         </div>
       </div>
 

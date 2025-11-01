@@ -41,7 +41,7 @@ const AddText = () => {
   const width = useDebounce(initialValues.width);
   const padding = useDebounce(initialValues.padding);
 
-  const [imageUrl, setCustomImageUrl, Icon] = useContext(ImageContext);
+  const [, , imageUrl, , , setCustomImageUrl, Icon] = useContext(ImageContext);
 
   // checking whether user wants to ad bg/text color
   const handleCheckbox = (checkBoxName) => {

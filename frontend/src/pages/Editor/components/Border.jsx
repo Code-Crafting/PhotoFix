@@ -13,7 +13,7 @@ const Border = () => {
     borderWidth: "20",
     color: "#000000",
   });
-  const [imageUrl, setCustomImageUrl] = useContext(ImageContext);
+  const [, , imageUrl, , , setCustomImageUrl] = useContext(ImageContext);
 
   const width = useDebounce(defaultValues.width);
   const height = useDebounce(defaultValues.height);

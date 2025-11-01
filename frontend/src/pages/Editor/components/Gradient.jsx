@@ -13,7 +13,7 @@ import Alert from "../../../ui/Alert";
 import { Theme } from "../../../context/Theme";
 
 const Gradient = () => {
-  const [imageUrl, setCustomImageUrl, Icon] = useContext(ImageContext);
+  const [, , imageUrl, , , setCustomImageUrl, Icon] = useContext(ImageContext);
   const [isLight] = useContext(Theme);
   const [defaultValues, setdefaultValues] = useState({
     width: "",

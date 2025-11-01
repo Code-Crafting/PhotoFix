@@ -13,7 +13,7 @@ const Rotate = () => {
     width: "",
     height: "",
   });
-  const [imageUrl, setCustomImageUrl, Icon] = useContext(ImageContext);
+  const [, , imageUrl, , , setCustomImageUrl, Icon] = useContext(ImageContext);
   const degree = useDebounce(defaultValues.degree);
   const width = useDebounce(defaultValues.width);
   const height = useDebounce(defaultValues.height);

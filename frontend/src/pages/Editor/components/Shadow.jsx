@@ -20,7 +20,7 @@ const Shadow = () => {
   });
   const [isLight] = useContext(Theme);
   const [showModal, setShowModal] = useState(false);
-  const [imageUrl, setCustomImageUrl, Icon, setProgress] =
+  const [, setProgress, imageUrl, , , setCustomImageUrl, Icon] =
     useContext(ImageContext);
 
   const blur = useDebounce(defaultValues.blur);
@@ -31,6 +31,7 @@ const Shadow = () => {
   const handleShadow = () => {
     if (!imageUrl.url) return;
     const isPng = imageUrl.name.includes("png");
+    console.log(imageUrl);
     if (!isPng) {
       setShowModal(true);
       imageUrl.url = "";
